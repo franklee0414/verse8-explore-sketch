@@ -549,8 +549,9 @@ body.dark .cm-panel .ep-card{background:var(--bg)}
 #dashPage{display:none}
 body.view-dash main > section:not(#dashPage){display:none}
 body.view-dash .pagefoot{display:none}
-.tab-dash{display:none}
-body.signed .tab-dash{display:flex}
+.tab-dash{display:flex}
+body:not(.signed) .tab-dash{color:#B4BAC4}
+body:not(.signed) .tab-dash:hover{color:#8A919C}
 body.view-dash .tab.on,body.view-profile .tab.on{color:var(--muted)}
 body.view-dash .tab.on::after,body.view-profile .tab.on::after{display:none}
 body.view-dash .tab-dash{color:var(--accent)}
@@ -587,6 +588,81 @@ svg.li{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-
 .db-sec-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .db-sec-h a{font-size:13px;font-weight:600;color:var(--muted)}
 .db-sec-h a:hover{color:var(--fg)}
+.db-sec-note{font-size:13px;color:var(--muted)}
+.db-sub{font-size:15px;font-weight:800;margin:0 0 12px}
+.db-note{margin:-4px 0 14px;font-size:13px;color:var(--muted);line-height:1.6}
+.db-table tfoot td{font-weight:700;border-top:1px solid var(--line)}
+.db-ads{display:grid;gap:12px;margin-top:4px;transition:opacity .15s ease}
+.db-slots{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:var(--muted);margin-top:2px}
+.db-slots em{font-style:normal;display:inline-flex;gap:6px;align-items:center;padding:4px 9px;border-radius:999px;background:var(--surface);color:var(--fg);font-weight:500}
+.db-slots em b{font-weight:700;font-variant-numeric:tabular-nums}
+.db-ads.off{opacity:.4;pointer-events:none}
+.db-warn{display:flex;align-items:center;gap:10px;margin:10px 0 2px;padding:10px 12px;border-radius:8px;background:#FFF7E6;color:#8A5A00;font-size:13px;line-height:1.5}
+.db-warn svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.db-warn a{margin-left:auto;flex:none;font-weight:700;color:#8A5A00;text-decoration:underline}
+.db-warn.red{background:#FFF1F1;color:#B42318}
+body.dark .db-warn{background:rgba(245,158,11,.14);color:#F5B301}
+body.dark .db-warn.red{background:rgba(229,72,77,.14);color:#F08A8E}
+body.dark .db-warn a{color:#F5B301}
+.db-ads>.db-switch{border-top:0;padding:14px 2px 0}
+.db-promo{margin-top:12px;border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.db-promo b{display:block;font-family:var(--display);font-weight:700;font-size:14px}
+.db-promo small{display:block;font-size:12px;color:var(--muted);margin-top:2px;line-height:1.5}
+.db-promo .st{margin-left:auto;font-size:13px;font-weight:600;color:#2F6BFF;white-space:nowrap}
+.db-promo .btn{flex:none}
+.db-promo-st{display:inline-flex;align-items:center;gap:12px}
+.ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ch-card{border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.ch-logo{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;overflow:hidden}
+.ch-logo img.full{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.ch-logo svg{width:34px;height:34px}
+.lg-txt{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;color:#fff;font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.02em}
+.ch-card b{display:block;font-family:var(--display);font-weight:700;font-size:14px}
+.ch-card small{display:block;font-size:12px;color:var(--muted);line-height:1.5;margin-top:3px;word-break:keep-all}
+.ch-card small .rv{color:#B4BAC4;white-space:nowrap}
+.ch-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:8px;min-height:40px}
+.ch-foot .pre{font-size:13px;color:var(--muted)}
+.ch-foot .btn{height:32px;font-size:13px;padding:0 12px}
+body.dark .ch-logo{background:#262B35}
+.db-promo-st .st{font-size:13px;font-weight:600;color:#2F6BFF;white-space:nowrap}
+.db-req{display:grid;gap:8px;margin-top:4px;font-size:13px}
+.db-req div{display:flex;align-items:center;gap:8px}
+.db-req i{width:18px;height:18px;border-radius:50%;background:#16A34A;color:#fff;font-style:normal;font-size:11px;font-weight:800;display:grid;place-items:center;flex:none}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.db-promo.top{margin-top:0}
+.pchips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 14px}
+.pchip{display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 14px 0 11px;border-radius:999px;border:1px solid var(--line);font-size:13px;font-weight:600;color:#9AA1AB;background:var(--bg);transition:border-color .15s ease,color .15s ease}
+.pchip svg{width:16px;height:16px;flex:none}
+.pchip:not(.on) svg *{fill:#C3C9D2!important}
+.pchip.on{color:var(--fg);border-color:var(--fg);box-shadow:inset 0 0 0 1px var(--fg)}
+body.dark .pchip.on svg path[fill="#000"]{fill:#fff}
+.db-ad{border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;gap:8px;align-content:start}
+.db-ad.one{grid-template-columns:260px 1fr;gap:20px;align-items:center}
+.db-ad.one>div{display:grid;gap:6px}
+.db-ad b{font-family:var(--display);font-weight:700;font-size:14px}
+.db-ad small{display:block;font-size:12px;color:var(--muted);line-height:1.5}
+.db-ad a{font-size:13px;font-weight:600;color:#2F6BFF}
+.adp{position:relative;overflow:hidden;border-radius:8px;aspect-ratio:16/9;background:linear-gradient(180deg,#E8EFFF 0%,#F4F6FA 100%);border:1px solid var(--line);font-family:var(--display);font-weight:700;color:var(--fg)}
+.adp .pill{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:5px 9px;border-radius:999px;background:#fff;box-shadow:0 2px 8px rgba(20,24,40,.15);font-size:10px;white-space:nowrap;display:flex;align-items:center;gap:4px;animation:adPulse 8s ease-in-out infinite}
+.adp .pill i{width:0;height:0;border-left:6px solid #2F6BFF;border-top:4px solid transparent;border-bottom:4px solid transparent}
+@keyframes adPulse{0%,18%,100%{transform:translate(-50%,-50%) scale(1)}6%,13%{transform:translate(-50%,-50%) scale(1.1)}}
+.adp .ad{position:absolute;inset:10% 8%;background:#fff;border-radius:6px;box-shadow:0 6px 20px rgba(20,24,40,.18);display:grid;grid-template-rows:auto 1fr auto;gap:4px;padding:6px;animation:adRwIn 8s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes adRwIn{0%,18%{transform:translateY(120%);opacity:0}24%,66%{transform:translateY(0);opacity:1}72%,100%{transform:translateY(120%);opacity:0}}
+.adp .tag{font-size:8px;color:var(--muted);letter-spacing:.06em;display:flex;justify-content:space-between;align-items:center}
+.adp .vid{background:linear-gradient(135deg,#6A4CFF,#2E9BDD);border-radius:4px;position:relative}
+.adp .vid::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent;opacity:.9}
+.adp .prog{height:3px;border-radius:2px;background:#E3E7EC;overflow:hidden}
+.adp .prog i{display:block;height:100%;width:0;background:#2F6BFF;animation:adProg 8s linear infinite}
+@keyframes adProg{0%,24%{width:0}64%,100%{width:100%}}
+.adp .x{width:12px;height:12px;border-radius:50%;background:#EEF1F5;position:relative}
+.adp .x::before,.adp .x::after{content:"";position:absolute;left:3px;top:5px;width:6px;height:1.5px;background:#5F6670;transform:rotate(45deg)}
+.adp .x::after{transform:rotate(-45deg)}
+.db-ads.off .adp *{animation-play-state:paused}
+body.dark .adp{background:linear-gradient(180deg,#1E2432,#171A21);border-color:#2A2F3A}
+body.dark .adp .ad,body.dark .adp .pill{background:#262B35;color:#E6E8EC}
+body.dark .adp .x,body.dark .adp .prog{background:#394052}
+@media (prefers-reduced-motion:reduce){.adp *{animation:none!important}}
+.db-switch small a{color:#2F6BFF;font-weight:600}
 .db-range{position:relative}
 .db-range-btn{display:flex;align-items:center;gap:12px;height:44px;padding:0 10px 0 14px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);text-align:left;transition:background .15s ease,border-color .15s ease}
 .db-range-btn:hover{background:var(--surface)}
@@ -620,7 +696,24 @@ body.dark .db-card:hover{border-color:#3A414D}
 .db-badge{--dot:#9AA1AB;display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 9px 0 8px;border-radius:999px;font-family:var(--display);font-size:11px;font-weight:600;background:var(--surface);color:var(--fg);white-space:nowrap;flex:none}
 .db-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--dot)}
 .db-badge.live{--dot:#16A34A}
-.db-badge.review{--dot:#F59E0B}
+.db-badge.live,.db-badge.review,.db-badge.private,.db-badge.draft,.db-badge.linked{padding:0 9px}
+.db-badge.live::before,.db-badge.review::before,.db-badge.private::before,.db-badge.draft::before,.db-badge.linked::before{display:none}
+.db-badge.live{background:#1F2227;color:#fff}
+.db-badge.review{background:#2F6BFF;color:#fff}
+.db-badge.private,.db-badge.draft,.db-badge.linked{background:#E3E7EC;color:#8A919C}
+body.dark .db-badge.live{background:#E6E8EC;color:#1F2227}
+body.dark .db-badge.private,body.dark .db-badge.draft{background:#2A2F3A;color:#8A919C}
+.db-badge.cur,.db-badge.failed{padding:0}
+.db-badge.cur::before,.db-badge.done::before,.db-badge.failed::before{display:none}
+.db-badge.cur{background:none;color:#2F6BFF}
+.db-badge.done{background:none;color:#9AA1AB;padding:0}
+.db-badge.preview{background:none;color:#6A4CFF;padding:0}
+.db-badge.preview::before{display:none}
+.db-badge.failed{background:none;color:#E5484D}
+body.dark .db-badge.cur{color:#7FA3FF}
+body.dark .db-badge.failed{color:#F08A8E}
+.db-badge.paid{--dot:#16A34A}
+.db-badge.pending{--dot:#2F6BFF}
 .db-card.review{background:linear-gradient(90deg,#F7F8FA 35%,#fff 50%,#F7F8FA 65%);background-size:200% 100%;background-repeat:no-repeat;background-color:#F7F8FA;animation:dbFlow 3s linear infinite}
 body.dark .db-card.review{background-image:linear-gradient(90deg,var(--surface) 35%,#232833 50%,var(--surface) 65%);background-color:var(--surface)}
 @keyframes dbFlow{0%{background-position:150% 0}100%{background-position:-50% 0}}
@@ -632,8 +725,8 @@ body.dark .db-card.review{background-image:linear-gradient(90deg,var(--surface) 
 .db-list{border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .db-row{display:flex;align-items:center;gap:14px;padding:14px 18px;border-top:1px solid var(--line);font-size:13px}
 .db-row:first-child{border-top:0}
-.db-row .ico{width:32px;height:32px;border-radius:8px;background:var(--surface);display:grid;place-items:center;flex:none;color:var(--muted)}
-.db-row .ico svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.db-row .ico{width:28px;height:28px;display:grid;place-items:center;flex:none}
+.db-row .ico svg{width:24px;height:24px}
 .db-row .t{flex:1;min-width:0}
 .db-row .t b{font-weight:600}
 .db-row .when{color:var(--muted);font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums}
@@ -647,10 +740,16 @@ body.dark .db-card.review{background-image:linear-gradient(90deg,var(--surface) 
 .db-game-h{display:flex;align-items:flex-end;gap:16px;margin-bottom:8px}
 .db-game-h .db-url{margin-top:2px}
 .db-game-h img{width:56px;height:56px;border-radius:8px;object-fit:cover}
+.gph{display:grid;place-items:center;flex:none;background:linear-gradient(135deg,#6A4CFF,#2E9BDD);color:#fff;font-family:var(--display);font-weight:800;letter-spacing:.02em}
+.gcell .gph{width:48px;height:48px;border-radius:6px;font-size:15px}
+.db-game-h .gph{width:56px;height:56px;border-radius:8px;font-size:18px}
+.db-card .gph{width:64px;height:64px;border-radius:8px;font-size:20px}
+.db-thumb .gph{width:120px;height:120px;border-radius:12px;font-size:32px}
 .db-game-h h1{display:flex;align-items:center;gap:10px}
-.db-url{display:inline-flex;align-items:center;gap:6px;margin-top:4px;font-size:13px;color:var(--muted)}
+.db-url{display:inline-flex;align-items:center;gap:1px;margin-top:4px;font-size:13px;color:var(--muted)}
 .db-url button{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:6px;color:var(--muted)}
-.db-url button:hover{background:var(--surface);color:var(--fg)}
+.db-url button:hover,.db-url button.ok{color:var(--fg)}
+.db-url button.ok svg{stroke:#16A34A}
 .db-url button svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .db-tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:20px 0 28px}
 .db-tabs a{position:relative;height:40px;display:flex;align-items:center;padding:0 12px;font-family:var(--display);font-weight:600;font-size:14px;color:var(--muted)}
@@ -660,18 +759,37 @@ body.dark .db-card.review{background-image:linear-gradient(90deg,var(--surface) 
 .db-tile{display:grid;grid-template-columns:260px 1fr;gap:24px;padding:20px;border:1px solid var(--line);border-radius:12px}
 .db-tile img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px}
 .db-kv{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;font-size:13px;align-content:start;align-items:center}
-.db-kv small,.db-kv span{display:flex;align-items:center;min-height:24px;line-height:1.3}
+.db-kv>small,.db-kv>span{display:flex;align-items:center;min-height:24px;line-height:1.3}
+.db-kv .srv{display:inline-flex;align-items:center;margin-right:6px}
 .db-kv small{color:var(--muted);font-weight:600;font-size:13px}
 .db-kv code{display:inline-flex;align-items:center;height:20px;margin-right:6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;background:var(--surface);padding:0 6px;border-radius:5px}
 .db-tile>div{display:flex;flex-direction:column;min-width:0}
 .db-tile .acts{display:flex;gap:8px;margin-top:auto;padding-top:18px}
 .db-chart{border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.srv-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#16A34A;margin-right:7px;vertical-align:middle}
+.srv-dot.busy{background:#E5484D}
+.srv.ok{color:#16A34A}
+.srv.busy{color:#E5484D}
+.db-srvline{display:flex;align-items:center;gap:10px;margin:-8px 0 20px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:13px;color:var(--fg)}
+.db-srvline i{width:8px;height:8px;border-radius:50%;background:#16A34A;flex:none;animation:srvBlink 4s ease-in-out infinite}
+.db-srvline.busy i{background:#E5484D}
+.db-srvline b{font-weight:700;color:#16A34A}
+.db-srvline.busy b{color:#E5484D}
+.db-srvline span{color:var(--muted)}
+.db-srvline em{margin-left:auto;font-style:normal;font-weight:600;color:var(--muted)}
+.db-srvline:hover em{color:var(--fg)}
 .db-chart .top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
 .db-chart .top b{font-family:var(--display);font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}
 .db-chart .top{align-items:center}
 .db-chart .top .lg{display:flex;gap:14px;font-size:12px;color:var(--muted)}
 .db-chart .top .lg i{display:inline-block;width:10px;height:2px;vertical-align:middle;margin-right:6px;background:#2F6BFF;border-radius:1px}
 .db-chart .top .lg i.p{background:repeating-linear-gradient(90deg,#9AA1AB 0 3px,transparent 3px 5px)}
+.db-chart .top .cl{font-size:13px;font-weight:600;color:var(--muted);margin-left:8px}
+.db-chart .top .lg .live i{width:8px;height:8px;border-radius:50%;background:#16A34A;animation:srvPulse 1.6s ease-in-out infinite}
+@keyframes srvPulse{50%{opacity:.35}}
+.db-stat b .srv-dot{width:10px;height:10px;margin-right:10px;position:relative;top:-3px}
+.srv-dot.live{animation:srvBlink 4s ease-in-out infinite}
+@keyframes srvBlink{0%,100%{opacity:1}50%{opacity:.2}}
 .db-plot{position:relative;width:100%;height:180px;cursor:crosshair}
 .db-plot svg{display:block;overflow:visible}
 .db-plot .g{stroke:var(--line);stroke-dasharray:3 4}
@@ -720,6 +838,7 @@ body.dark .db-card.review{background-image:linear-gradient(90deg,var(--surface) 
 .gcell img{width:48px;height:48px;border-radius:6px;object-fit:cover;flex:none}
 .gcell b{display:block;font-family:var(--display);font-weight:700;font-size:14px}
 .gcell small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.gcell small .ver{font-style:normal;font-weight:600;color:var(--fg);margin-right:8px}
 .db-table .src{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:6px;border:1px solid var(--line);font-size:11px;font-weight:600;color:var(--muted)}
 .db-table .more{width:30px;height:30px;border-radius:8px;display:inline-grid;place-items:center;color:var(--muted)}
 .db-table .more:hover{background:var(--surface-2);color:var(--fg)}
@@ -736,6 +855,11 @@ body.dark .db-card.review{background-image:linear-gradient(90deg,var(--surface) 
 .db-field>label small{display:block;margin-top:4px;font-size:12px;font-weight:400;color:var(--muted);line-height:1.5}
 .db-in{width:100%;height:40px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit;font-size:14px;outline:0}
 .db-in:focus{border-color:#C9CED6}
+.db-url-in{display:flex;align-items:stretch}
+.db-url-in span{display:flex;align-items:center;padding:0 10px;border:1px solid var(--line);border-right:0;border-radius:8px 0 0 8px;background:var(--surface);color:var(--muted);font-size:14px;white-space:nowrap}
+.db-url-in .db-in{border-radius:0 8px 8px 0}
+.db-field .hint.ok{color:#16A34A}
+.db-field .hint.bad{color:#E5484D}
 textarea.db-in{height:auto;padding:10px 12px;resize:vertical;min-height:96px;line-height:1.5}
 .db-field .hint{margin:6px 0 0;font-size:12px;color:var(--muted)}
 .db-chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -775,6 +899,9 @@ body.dark .db-danger{border-color:#5B1F1F}
 .db-steps li i{width:26px;height:26px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-style:normal;font-family:var(--display);font-weight:800;font-size:12px;flex:none}
 .db-steps li.on{border-color:#2F6BFF;color:var(--fg)}
 .db-steps li.on i{background:#2F6BFF;color:#fff}
+.db-steps li.done{color:var(--muted)}
+.db-steps li.done i{background:#16A34A;color:#fff}
+.db-empty .db-steps{text-align:left;max-width:960px;margin:24px auto 24px}
 .db-steps b{display:block;font-family:var(--display);font-weight:700;font-size:14px}
 .db-steps small{display:block;font-size:12px;margin-top:2px;line-height:1.5}
 .db-onb-ways{max-width:none}
@@ -840,8 +967,8 @@ body.dark .db-toast{background:#fff;color:#111316}
 .gnb-pop .row:last-child{border-bottom:0}
 .gnb-pop a.row:hover{background:var(--surface)}
 .gnb-pop .row.new{background:var(--accent-soft)}
-.gnb-pop .row .ico{width:32px;height:32px;border-radius:8px;background:var(--surface);display:grid;place-items:center;color:var(--muted);flex:none}
-.gnb-pop .row .ico svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.gnb-pop .row .ico{width:28px;height:28px;display:grid;place-items:center;flex:none}
+.gnb-pop .row .ico svg{width:24px;height:24px}
 .gnb-pop .row .t{flex:1;min-width:0;line-height:1.5;white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
 .gnb-pop .row .t small{display:block;margin-top:2px;font-size:11px;color:var(--muted)}
 .gnb-pop .help .row .t{font-weight:600}
@@ -1022,10 +1149,10 @@ body.view-play #playLayer{display:block}
   <div class="wrap">
     <a class="logo" href="#" aria-label="Verse8"><img src="../img/logo-blue.png" alt="Verse8"></a>
     <nav class="tabs" aria-label="주요 메뉴">
-      <a class="tab on" href="#">Explore</a>
-      <a class="tab" href="#">MSU Space</a>
       <a class="tab" href="#">About Us</a>
+      <a class="tab on" href="#">Play</a>
       <a class="tab tab-dash" href="#dashboard">My Studio</a>
+      <a class="tab" href="#">MSU Space</a>
     </nav>
     <form class="gsearch" id="gsearch" role="search" onsubmit="return false"><button type="button" class="icon-btn" id="gsBtn" aria-label="검색"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button><input id="q" type="search" placeholder="게임, 앱 검색" aria-label="게임, 앱 검색" autocomplete="off" autocorrect="off" spellcheck="false"><button type="button" class="gs-clear" id="gsClear" aria-label="검색 닫기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button></form>
     <div class="gnb-right">
@@ -1065,7 +1192,6 @@ body.view-play #playLayer{display:block}
       <nav class="db-nav" aria-label="대시보드 메뉴">
         <a href="#dashboard" data-db="home"><svg class="li" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1.5"/><rect width="7" height="7" x="14" y="3" rx="1.5"/><rect width="7" height="7" x="14" y="14" rx="1.5"/><rect width="7" height="7" x="3" y="14" rx="1.5"/></svg><span>대시보드</span></a>
         <a href="#dashboard/games" data-db="games"><svg class="li" viewBox="0 0 24 24"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg><span>내 게임</span></a>
-        <a href="#dashboard/analytics" data-db="analytics"><svg class="li" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg><span>분석</span></a>
         <a href="#dashboard/earnings" data-db="earnings"><svg class="li" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.3c-.4-.9-1.4-1.3-2.5-1.3-1.5 0-2.5.8-2.5 1.9 0 2.4 5 1.2 5 3.7 0 1.2-1.1 1.9-2.5 1.9-1.2 0-2.2-.5-2.6-1.4M12 6.5V8m0 8v1.5"/></svg><span>수익</span></a>
         <a href="#dashboard/credits" data-db="credits"><svg class="li" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2.5"/><line x1="2" x2="22" y1="10" y2="10"/></svg><span>크레딧</span></a>
         <a href="#dashboard/settings" data-db="settings"><svg class="li" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg><span>설정</span></a>
@@ -1170,7 +1296,7 @@ body.view-play #playLayer{display:block}
         </article>
         <article class="ep-card">
           <div class="ep-icon dual"><div class="tile ep-tile" style="background-image:url(../img/claude-code.jpg)"></div><div class="tile ep-tile" style="background-image:url(../img/codex.jpg)"></div><div class="tile ep-tile t-gpt" aria-label="GPT"><svg viewBox="0 0 24 24"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg></div></div>
-          <h3>Claude · GPT로 만든 게임 연결</h3>
+          <h3>Claude, GPT로 만든 게임 연결</h3>
           <p>이미 만든 게임이 있다면 MCP로 연결하세요. 서버 없이 바로 배포되고, 심사 후 수익화가 시작됩니다.</p>
           <a class="btn btn-black" href="#" data-toast="MCP 연결 문서로 이동합니다">MCP 연결하기</a>
         </article>
@@ -1238,7 +1364,7 @@ body.view-play #playLayer{display:block}
       <button class="pl-ib x" type="button" id="plExit" title="게임 나가기" aria-label="게임 나가기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
   </div>
-  <div class="pl-hint" id="plHint"><b>Esc</b> 전체화면 해제 · 우상단 <b>×</b> 게임 나가기</div>
+  <div class="pl-hint" id="plHint"><b>Esc</b> 전체화면 해제, 우상단 <b>×</b> 게임 나가기</div>
   <div class="pl-menu" id="plMenu">
     <div class="pl-panel">
       <div class="pl-ph"><img src="../img/last-dungeon-wars.jpg" alt=""><div><h2>Last Dungeon Wars</h2><p>GEIRDEV</p></div><button type="button" class="pl-close" id="plClose" aria-label="닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
@@ -1257,7 +1383,7 @@ body.view-play #playLayer{display:block}
           </section>
           <section class="pl-pane" data-pp="report"><h3 class="pl-pane-h">이 게임 신고하기</h3>
             <p class="pl-desc">이 게임에서 문제를 발견하셨나요? 내용을 적어 주시면 Verse8 팀이 확인합니다.</p>
-            <div class="pl-chips"><button type="button" class="on">부적절한 콘텐츠</button><button type="button">오류 · 버그</button><button type="button">저작권</button><button type="button">기타</button></div>
+            <div class="pl-chips"><button type="button" class="on">부적절한 콘텐츠</button><button type="button">오류, 버그</button><button type="button">저작권</button><button type="button">기타</button></div>
             <textarea class="pl-ta" rows="4" placeholder="자세한 내용을 적어 주세요"></textarea>
             <button type="button" class="btn btn-black">신고 보내기</button>
           </section>
@@ -1265,7 +1391,7 @@ body.view-play #playLayer{display:block}
             <h4 class="pl-h4">조작법</h4>
             <ul class="pl-keys"><li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>이동</span></li><li><kbd>마우스 왼쪽</kbd><span>공격</span></li><li><kbd>1</kbd>~<kbd>4</kbd><span>스킬</span></li><li><kbd>ESC</kbd><span>메뉴</span></li></ul>
             <h4 class="pl-h4">더 알아보기</h4>
-            <div class="pl-links"><a href="#game">게임 정보 · 릴리스 노트</a><a href="#">자주 묻는 질문</a><a href="#">고객 지원</a></div>
+            <div class="pl-links"><a href="#game">게임 정보와 릴리스 노트</a><a href="#">자주 묻는 질문</a><a href="#">고객 지원</a></div>
           </section>
         </div>
       </div>
@@ -1278,7 +1404,7 @@ body.view-play #playLayer{display:block}
 <aside class="note" id="note" hidden>
   <h3>이 스케치에 반영한 변경</h3>
   <ol>
-    <li><b>GNB</b> Discord · X 아이콘 제거</li>
+    <li><b>GNB</b> Discord, X 아이콘 제거</li>
     <li><b>GNB</b> Events 메뉴 제거</li>
     <li><b>GNB</b> Point 메뉴 제거</li>
     <li><b>GNB</b> Create를 Sign in 옆으로 이동, 버튼화 (tonal / filled 쌍)</li>
@@ -1286,7 +1412,7 @@ body.view-play #playLayer{display:block}
     <li><b>Explore</b> Collection 섹션 제거</li>
     <li><b>Look</b> Google Play 게임 탭 구조 적용: 탭 GNB, 장르 칩 바, 대형 피처드 카드, 아이콘 행, Create 프로모 배너, 그리드</li>
   </ol>
-  <div class="ref">참고: <a href="https://play.google.com/store/games?hl=ko">Google Play 게임</a> · 원본 <a href="https://verse8.io/explore">verse8.io/explore</a></div>
+  <div class="ref">참고: <a href="https://play.google.com/store/games?hl=ko">Google Play 게임</a>, 원본 <a href="https://verse8.io/explore">verse8.io/explore</a></div>
 </aside>
 
 <script>
@@ -1511,13 +1637,13 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
 // ===== 게임 상세 페이지 (#game / #game-play) — 시안 A(로블록스형) · B(스토어형) =====
 const GAME={
   g:G.ldw, video:'../video/ldw-video.mp4', tags:['2D','Arcade','RPG','Action'], rating:'4.5', plays:'1,307,765', likes:'620', released:'2025.08.12', updated:'2026.10.23',
-  genre:'RPG', sub:'Roguelike', platform:'PC · 모바일', players:'싱글', followers:'1,165', following:'19',
+  genre:'RPG', sub:'Roguelike', platform:'PC, 모바일', players:'싱글', followers:'1,165', following:'19',
   shots:[G.dungeons.i, G.survive.i, G.pixel.i],
   desc:[
     '최후의 던전에서 살아남으세요. Last Dungeon Wars는 로그라이크 요소를 결합한 2D 액션 RPG입니다. 매 판마다 새로 생성되는 던전을 탐험하고, 강력한 보스를 쓰러뜨려 새로운 캐릭터와 장비를 해금하세요.',
-    '검사 · 궁수 · 마법사 · 엘프 · 로그 등 개성 있는 캐릭터로 플레이하며 자신만의 빌드를 만들어 보세요. 이 게임은 Verse8에서 프롬프트로 제작되었으며 꾸준히 업데이트되고 있습니다.'
+    '검사, 궁수, 마법사, 엘프, 로그 등 개성 있는 캐릭터로 플레이하며 자신만의 빌드를 만들어 보세요. 이 게임은 Verse8에서 프롬프트로 제작되었으며 꾸준히 업데이트되고 있습니다.'
   ],
-  controls:'조작: 이동 <b>WASD</b> · 공격 <b>마우스 왼쪽</b> · 스킬 <b>1~4</b> · 일시정지 <b>ESC</b>',
+  controls:'조작: 이동 <b>WASD</b>, 공격 <b>마우스 왼쪽</b>, 스킬 <b>1~4</b>, 일시정지 <b>ESC</b>',
   notes:[
     {v:'v1.0.5',d:'2025.12.03',t:'신규 캐릭터 로그 추가. 적에게 출혈을 입히는 암살 공격을 사용합니다. 구독하면 바로 사용할 수 있습니다.'},
     {v:'v1.0.4',d:'2025.08.22',t:'엘프 강화: 5발마다 강화 화살을 발사합니다. 엘프가 전투에서 약하다는 피드백을 반영했습니다.'},
@@ -1565,7 +1691,7 @@ const gpBadges=()=>`<div class="gp-badges">${GAME.badges.map(b=>`<div class="gp-
 const gpNotes=()=>`<div class="gp-notes">${GAME.notes.map(n=>`<div class="gp-note"><span class="v">${n.v}</span><span class="d">${n.d}</span><p>${n.t}</p></div>`).join('')}</div>`;
 const gpComments=()=>`<div class="gp-cmt-in"><input type="text" placeholder="이 게임은 어땠나요?"><a class="btn btn-black" href="#">등록</a></div><div class="gp-cmts">${GAME.comments.map(c=>`<div class="gp-cmt"><div class="av">${c.w.slice(0,2)}</div><div><span class="who">${c.w}</span>${c.dev?'<span class="dev">개발자</span>':''}<span class="when">${c.d}</span><p>${c.t}</p><div class="re"><span>👍 ${c.l}</span><span>답글 ${c.r}</span></div></div></div>`).join('')}</div>`;
 const gpRec=()=>`<div class="gp-rec"><div class="sec-head"><div><h2>비슷한 게임</h2><p>이 게임을 좋아한 플레이어가 즐긴 게임</p></div></div><div class="grid">${GAME.rec.map(k=>appCard(G[k])).join('')}</div></div>`;
-let gameFrom='';
+let gameFrom='', dbGameFrom='#dashboard/games';
 const gpHead=()=>`<div class="gp-head"><a class="ep-back" href="${gameFrom||'#'}">${I.back}뒤로</a></div>`;
 const gpTabs=(panels)=>`<div class="gp-tabs">${panels.map((p,i)=>`<button type="button" class="${i?'':'on'}" data-t="${i}">${p[0]}</button>`).join('')}</div>${panels.map((p,i)=>`<div class="gp-panel ${i?'':'on'}" data-p="${i}">${p[1]}</div>`).join('')}`;
 function renderGame(play){
@@ -1648,14 +1774,14 @@ document.addEventListener('click',e=>{
 },true);
 // ===== 크리에이터 대시보드 (#dashboard …) =====
 const ME={name:'Kevin Lee',handle:'@kevinlee',email:'frank@planetariumhq.com',credits:12.40};
-const DBS={live:'공개',review:'심사 중',private:'비공개',draft:'초안',rejected:'반려',building:'게시 중'};
+const DBS={live:'공개',review:'심사 중',private:'비공개',linked:'게시 전',rejected:'반려',building:'게시 중'};
 const SRC={agent:'Agent 8',mcp:'MCP',manual:'수동'};
 const NOW=new Date('2026-11-05T10:00:00');
 const ago=d=>{ const s=(NOW-new Date(d))/1000; if(s<3600) return Math.max(1,Math.round(s/60))+'분 전'; if(s<86400) return Math.round(s/3600)+'시간 전'; return Math.round(s/86400)+'일 전'; };
 const dur=s=>s>=60?Math.floor(s/60)+'분 '+(s%60)+'초':s+'초';
 const seed=(k,n)=>{ let x=0; for(const c of k) x=(x*31+c.charCodeAt(0))>>>0; return [...Array(n)].map((_,i)=>{ x=(x*1103515245+12345)>>>0; return (x>>>8)/16777216; }); };
 const MYG=[
-  {id:'ldw',g:G.ldw,st:'live',ver:'v1.0.5',pub:'2026-10-23T14:12:00',src:'agent',d7:48120,d7p:9.4,
+  {id:'ldw',g:G.ldw,st:'live',ver:'v1.0.5',pub:'2026-10-23T14:12:00',src:'agent',srv:{st:'ok',ccu:40,p95:50,rooms:7,mps:547,use:38},d7:48120,d7p:9.4,
    rel:[{v:'v1.0.5',st:'live',src:'agent',m:'신규 캐릭터 로그 추가, 암살 공격',t:'2026-10-23T14:12:00',s:72},
         {v:'v1.0.4',st:'done',src:'agent',m:'엘프 강화 화살 추가',t:'2026-08-22T09:30:00',s:65},
         {v:'v1.0.3',st:'done',src:'agent',m:'배경 그래픽 미표시 버그 수정',t:'2026-07-30T18:05:00',s:41},
@@ -1664,18 +1790,18 @@ const MYG=[
         {v:'v1.0.0',st:'done',src:'agent',m:'첫 공개',t:'2025-08-12T10:00:00',s:91}]},
   {id:'food',g:G.food,st:'live',ver:'v2.3.0',pub:'2026-11-01T20:40:00',src:'agent',d7:36400,d7p:3.1,
    rel:[{v:'v2.3.0',st:'live',src:'agent',m:'할로윈 테마 과일 추가',t:'2026-11-01T20:40:00',s:54},{v:'v2.2.1',st:'done',src:'agent',m:'모바일 터치 판정 수정',t:'2026-10-14T08:20:00',s:47},{v:'v2.2.0',st:'done',src:'agent',m:'랭킹 보드',t:'2026-09-03T15:00:00',s:66}]},
-  {id:'coldSteel',g:G.coldSteel,st:'live',ver:'v1.8.2',pub:'2026-09-28T12:00:00',src:'mcp',d7:21900,d7p:-4.2,
-   rel:[{v:'v1.8.2',st:'live',src:'mcp',m:'서버 저장 안정화',t:'2026-09-28T12:00:00',s:83},{v:'v1.8.1',st:'done',src:'mcp',m:'밸런스 조정',t:'2026-09-10T10:10:00',s:79}]},
-  {id:'drill',g:G.drill,st:'review',ver:'v1.2.0',pub:'2026-11-04T17:25:00',src:'agent',d7:9800,d7p:12.0,
-   rel:[{v:'v1.2.0',st:'review',src:'agent',m:'새 스테이지 10개',t:'2026-11-04T17:25:00',s:61},{v:'v1.1.0',st:'live',src:'agent',m:'드릴 업그레이드 시스템',t:'2026-10-02T09:00:00',s:70}]},
-  {id:'dungeons',g:G.dungeons,st:'private',ver:'v0.9.1',pub:'2026-10-30T23:10:00',src:'agent',d7:620,d7p:0,
+  {id:'coldSteel',g:G.coldSteel,st:'live',ver:'v1.8.2',pub:'2026-09-28T12:00:00',src:'mcp',srv:{st:'busy',ccu:43,p95:438,rooms:7,mps:605,use:87},d7:21900,d7p:-4.2,
+   rel:[{v:'v1.9.0',st:'preview',src:'mcp',m:'새 보스와 3스테이지',t:'2026-11-05T16:20:00',s:35},{v:'v1.8.2',st:'live',src:'mcp',m:'서버 저장 안정화',t:'2026-09-28T12:00:00',s:83},{v:'v1.8.1',st:'done',src:'mcp',m:'밸런스 조정',t:'2026-09-10T10:10:00',s:79}]},
+  {id:'drill',g:G.drill,st:'live',ver:'v1.2.0',pub:'2026-11-04T17:25:00',src:'agent',d7:9800,d7p:12.0,
+   rel:[{v:'v1.2.0',st:'live',src:'agent',m:'새 스테이지 10개',t:'2026-11-04T17:25:00',s:61},{v:'v1.1.0',st:'done',src:'agent',m:'드릴 업그레이드 시스템',t:'2026-10-02T09:00:00',s:70}]},
+  {id:'dungeons',g:G.dungeons,st:'private',ver:'v0.9.1',pub:'2026-10-30T23:10:00',src:'agent',srv:{st:'ok',ccu:3,p95:41,rooms:1,mps:38,use:38},d7:620,d7p:0,
    rel:[{v:'v0.9.1',st:'done',src:'agent',m:'비공개 테스트 빌드',t:'2026-10-30T23:10:00',s:49}]},
-  {id:'soda',g:{...G.soda,p:0,l:0},st:'draft',ver:'—',pub:null,src:'agent',d7:0,d7p:0,rel:[]}
+  {id:'soda',g:{...G.soda,t:'soda-pop',p:0,l:0,i:null},st:'linked',ver:'—',pub:null,src:'mcp',d7:0,d7p:0,rel:[]}
 ];
 let MYG_BACKUP=null;
-const emptyBox=k=>({games:'<div class="db-empty"><div class="ic">'+dbIco.rocket+'</div><h2>아직 게임이 없어요</h2><p>프롬프트 한 줄로 첫 게임을 만들거나, 이미 만든 게임을 MCP로 연결해 보세요. 게시하면 여기에서 관리할 수 있어요.</p><button type="button" class="btn btn-grad" data-create><span>첫 게임 만들기</span></button></div>',analytics:'<div class="db-empty"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="M8 15l4-5 3 3 5-6"/></svg></div><h2>아직 분석할 데이터가 없어요</h2><p>게임을 공개하면 플레이 · 플레이어 · 유입 경로가 여기에 쌓입니다.</p><button type="button" class="btn btn-grad" data-create><span>첫 게임 만들기</span></button></div>',earnings:'<div class="db-empty"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 18l6-6 4 4 6-8"/><path d="M16 8h4v4"/></svg></div><h2>아직 수익이 없어요</h2><p>공개된 게임이 심사를 통과하면 광고 · 인게임 구매 · 멤버십 수익이 매월 5일에 정산됩니다.</p><button type="button" class="btn btn-grad" data-create><span>첫 게임 만들기</span></button></div>'})[k];
+const emptyBox=k=>({games:'<div class="db-empty"><div class="ic">'+dbIco.rocketLine+'</div><h2>아직 게임이 없어요</h2><p>프롬프트 한 줄로 첫 게임을 만들거나, 이미 만든 게임을 MCP로 연결해 보세요. 게시하면 여기에서 관리할 수 있어요.</p><button type="button" class="btn btn-grad" data-create><span>첫 게임 만들기</span></button></div>',analytics:'<div class="db-empty"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="M8 15l4-5 3 3 5-6"/></svg></div><h2>아직 분석할 데이터가 없어요</h2><p>게임을 공개하면 플레이, 플레이어, 유입 경로가 여기에 쌓입니다.</p><button type="button" class="btn btn-grad" data-create><span>첫 게임 만들기</span></button></div>',earnings:'<div class="db-empty"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 18l6-6 4 4 6-8"/><path d="M16 8h4v4"/></svg></div><h2>아직 수익이 없어요</h2><p>공개된 게임이 심사를 통과하면 광고와 인게임 구매 수익이 매월 5일에 정산됩니다.</p><button type="button" class="btn btn-grad" data-create><span>첫 게임 만들기</span></button></div>'})[k];
 const EVENTS=[
-  {ic:'rocket',t:'<b>Super Drill Man</b> v1.2.0 심사가 접수됐어요. 보통 24시간 안에 결과를 알려드려요.',w:'2026-11-04T17:26:00',n:1},
+  {ic:'rocket',t:'<b>Super Drill Man</b> v1.2.0이 자동 검사를 통과해 바로 반영됐어요.',w:'2026-11-04T17:26:00',n:1},
   {ic:'cmt',t:'<b>Last Dungeon Wars</b>에 새 댓글 3개',w:'2026-11-05T08:10:00',n:1},
   {ic:'earn',t:'10월 수익 <b>$1,394</b>가 정산됐어요.',w:'2026-11-05T09:00:00',n:0},
   {ic:'rocket',t:'<b>Food Slicer</b> v2.3.0 게시가 끝났어요.',w:'2026-11-01T20:41:00',n:0},
@@ -1683,14 +1809,15 @@ const EVENTS=[
   {ic:'rocket',t:'<b>Dungeons and Dungeoners</b> v0.9.1이 비공개로 게시됐어요.',w:'2026-10-30T23:11:00',n:0}
 ].sort((a,b)=>new Date(b.w)-new Date(a.w));
 const ACTS=EVENTS.slice(0,5);
-const dbIco={rocket:'<svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>',cmt:'<svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>',like:'<svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0l4.2-7.4a1.6 1.6 0 0 1 3 .9L13.5 9H19a2 2 0 0 1 2 2.4l-1.3 6.2A3 3 0 0 1 16.8 20H7"/></svg>'};
+const dbIco={rocketLine:'<svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>',rocket:'<svg viewBox="0 0 24 24"><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" fill="#6A4CFF"/><circle cx="15.6" cy="8.4" r="1.7" fill="#fff"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0z" fill="#A89BFF"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5z" fill="#A89BFF"/><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" fill="#FF8A3D"/></svg>',cmt:'<svg viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9.2l-4.4 3.5a.6.6 0 0 1-1-.47V5a1 1 0 0 1 1-1z" fill="#2F6BFF"/><circle cx="8.6" cy="10" r="1.25" fill="#fff"/><circle cx="12.5" cy="10" r="1.25" fill="#fff"/><circle cx="16.4" cy="10" r="1.25" fill="#fff"/></svg>',like:'<svg viewBox="0 0 24 24"><path d="M3 11.2A1.2 1.2 0 0 1 4.2 10H7v10.5H4.2A1.2 1.2 0 0 1 3 19.3z" fill="#8FD3A8"/><path d="M8.6 20.5V10.3l4.1-7.1a1.8 1.8 0 0 1 3.3 1.3L15 9h4.1a2 2 0 0 1 2 2.4l-1.4 6.6a3 3 0 0 1-2.9 2.5z" fill="#16A34A"/></svg>'};
 const dbFmt=n=>n.toLocaleString('ko-KR');
-dbIco.earn='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.3c-.4-.9-1.4-1.3-2.5-1.3-1.5 0-2.5.8-2.5 1.9 0 2.4 5 1.2 5 3.7 0 1.2-1.1 1.9-2.5 1.9-1.2 0-2.2-.5-2.6-1.4M12 6.5V8m0 8v1.5"/></svg>';
+dbIco.earn='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#F5B301"/><circle cx="12" cy="12" r="7.3" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.3"/><path d="M14.1 9.7c-.35-.8-1.2-1.15-2.1-1.15-1.3 0-2.15.7-2.15 1.6 0 2.05 4.3 1.05 4.3 3.2 0 1.05-.95 1.65-2.15 1.65-1.05 0-1.9-.45-2.25-1.2M12 7.4v1.2m0 6.8v1.2" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>';
 
 const badge=st=>`<span class="db-badge ${st}">${DBS[st]||st}</span>`;
-const relBadge=st=>({live:'<span class="db-badge live">현재 공개</span>',done:'<span class="db-badge">게시됨</span>',failed:'<span class="db-badge rejected">실패</span>',review:'<span class="db-badge review">심사 중</span>',building:'<span class="db-badge building">게시 중</span>'})[st]||badge(st);
-const gameRow=m=>`<tr class="grow" data-go="#dashboard/games/${m.id}"><td><div class="gcell"><img src="../img/${m.g.i}" alt=""><div><b>${m.g.t}</b><small>${m.pub?m.ver:'게시 전'} · verse8.io/${m.id}</small></div><span class="hov"><a href="#dashboard/games/${m.id}" title="세부정보" aria-label="세부정보"><svg viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg></a></span></div></td><td>${badge(m.st)}</td><td class="num">${dbFmt(m.g.p)}</td><td class="num">${dbFmt(m.g.l)}</td><td class="num">${m.pub?ago(m.pub):'—'}</td></tr>`;
-const gameCard=m=>`<a class="db-card ${m.st}" href="#dashboard/games/${m.id}"><img src="../img/${m.g.i}" alt=""><div><div class="nm"><span>${m.g.t}</span>${badge(m.st)}</div><div class="meta"><span>플레이 <b>${dbFmt(m.g.p)}</b></span><span class="lk"><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0l4.2-7.4a1.6 1.6 0 0 1 3 .9L13.5 9H19a2 2 0 0 1 2 2.4l-1.3 6.2A3 3 0 0 1 16.8 20H7"/></svg><b>${dbFmt(m.g.l)}</b></span>${m.pub?'<span class="when">'+ago(m.pub)+'</span>':''}</div></div></a>`;
+const relBadge=st=>({live:'<span class="db-badge cur">현재 공개</span>',done:'<span class="db-badge done">게시됨</span>',preview:'<span class="db-badge preview">미리보기</span>',failed:'<span class="db-badge failed">실패</span>',review:'<span class="db-badge review">심사 중</span>',building:'<span class="db-badge building">게시 중</span>'})[st]||badge(st);
+const thumb=m=>m.g.i?`<img src="../img/${m.g.i}" alt="">`:`<span class="gph">${m.g.t.split(/[\s-]+/).map(w=>w[0]).join('').slice(0,2).toUpperCase()}</span>`;
+const gameRow=m=>`<tr class="grow" data-go="#dashboard/games/${m.id}"><td><div class="gcell">${thumb(m)}<div><b>${m.g.t}</b><small>${m.pub?`<em class="ver">${m.ver}</em>verse8.io/${m.id}`:`<em class="ver">${m.src==='mcp'?'MCP 연결':'게시 전'}</em>게시 전`}</small></div><span class="hov"><a href="#dashboard/games/${m.id}" title="세부정보" aria-label="세부정보"><svg viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg></a></span></div></td><td>${badge(m.st)}</td><td>${m.srv?`<span class="srv ${m.srv.st}"><span class="srv-dot ${m.srv.st}"></span>${m.srv.st==='busy'?'혼잡':'원활'}</span>`:'<span style="color:var(--muted)">없음</span>'}</td>${m.pub?`<td class="num">${dbFmt(m.g.p)}</td><td class="num">${dbFmt(m.g.l)}</td><td class="num">${ago(m.pub)}</td>`:'<td class="num">—</td><td class="num">—</td><td class="num">—</td>'}</tr>`;
+const gameCard=m=>`<a class="db-card ${m.st}" href="#dashboard/games/${m.id}">${thumb(m)}<div><div class="nm"><span>${m.g.t}</span>${badge(m.st)}</div><div class="meta"><span>플레이 <b>${dbFmt(m.g.p)}</b></span><span class="lk"><svg viewBox="0 0 24 24"><path d="M7 11v9H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3zm0 0l4.2-7.4a1.6 1.6 0 0 1 3 .9L13.5 9H19a2 2 0 0 1 2 2.4l-1.3 6.2A3 3 0 0 1 16.8 20H7"/></svg><b>${dbFmt(m.g.l)}</b></span>${m.pub?'<span class="when">'+ago(m.pub)+'</span>':''}</div></div></a>`;
 const chart=(key,n,base,back=0)=>{ const v=seed(key+n+back,n).map((r,i)=>Math.round(base*(.78+r*.45)*(.75+Math.pow(i/(n-1),1.15)*1.1))); const pv=seed(key+n+back+'p',n).map((r,i)=>Math.round(base*(.6+r*.4)*(.7+i/(n-1)*.35))); return {v,svg:`<div class="db-plot" data-v='${JSON.stringify(v)}' data-p='${JSON.stringify(pv)}' data-l='${JSON.stringify(days(n,back))}'></div>`}; };
 const niceMax=m=>{ const mag=Math.pow(10,Math.floor(Math.log10(m||1))); return Math.ceil(m/mag*2)/2*mag; };
 const drawChart=el=>{ const v=JSON.parse(el.dataset.v), pv=JSON.parse(el.dataset.p), lab=JSON.parse(el.dataset.l); const W=el.clientWidth||600, H=180, L=4, R=52, T=14, B=26, n=v.length, mx=niceMax(Math.max(...v,...pv));
@@ -1701,6 +1828,7 @@ const drawChart=el=>{ const v=JSON.parse(el.dataset.v), pv=JSON.parse(el.dataset
   const svg=el.firstElementChild, hx=svg.querySelector('.hx'), hd=svg.querySelector('.hd'), tip=el.lastElementChild;
   el.onmousemove=e=>{ const r=el.getBoundingClientRect(); const x=e.clientX-r.left; let k=Math.round((x-L)/(W-L-R)*(n-1)); k=Math.max(0,Math.min(n-1,k)); const px=X(k), py=Y(v[k]); hx.setAttribute('x1',px); hx.setAttribute('x2',px); hd.setAttribute('cx',px); hd.setAttribute('cy',py); hx.style.display=hd.style.display=''; tip.hidden=false; tip.innerHTML=`<small>${lab[k]}</small><b>${dbFmt(v[k])}</b><span>이전 기간 ${dbFmt(pv[k])}</span>`; const tw=tip.offsetWidth; tip.style.left=Math.max(0,Math.min(W-tw,px-tw/2))+'px'; tip.style.top=(py-tip.offsetHeight-14)+'px'; };
   el.onmouseleave=()=>{ hx.style.display=hd.style.display='none'; tip.hidden=true; }; };
+document.addEventListener('input',e=>{ const a=e.target.closest('[data-alias]'); if(!a) return; const h=a.closest('.db-field').querySelector('[data-alias-hint]'); a.value=a.value.trim().toLowerCase().replace(/[^a-z0-9-]/g,''); const v=a.value; const used=MYG.map(x=>x.id.toLowerCase()).concat(['admin','verse8','explore','tetris','game','games']); let t,c; if(!v){ t='영문 소문자, 숫자, - 만 쓸 수 있어요'; c=''; } else if(v===a.dataset.alias){ t='지금 쓰는 이름이에요'; c='ok'; } else if(used.includes(v)){ t='이미 쓰는 이름이에요'; c='bad'; } else { t='사용할 수 있는 이름이에요'; c='ok'; } h.textContent=t; h.className='hint '+c; });
 const fixCols=()=>document.querySelectorAll('.db-table.pay').forEach(t=>{ const W=t.clientWidth-2, L=(W-64)/2; t.querySelectorAll('col[data-w]').forEach(c=>{ c.style.width=Math.round(new Function('W','L','return '+c.dataset.w)(W,L))+'px'; }); });
 const mountCharts=anim=>{ fixCols(); document.querySelectorAll('.db-plot').forEach(el=>{ drawChart(el); el.classList.toggle('anim',!!anim); if(anim) setTimeout(()=>el.classList.remove('anim'),1600); }); document.querySelectorAll('.db-bars').forEach(el=>{ el.classList.toggle('anim',!!anim); if(anim) setTimeout(()=>el.classList.remove('anim'),1600); }); };
 // 숫자 카운트업 (진입 시 1회, 0.7초)
@@ -1718,11 +1846,11 @@ const setRange=k=>{ const r=[...RANGES,...monthOpts()].find(x=>x.k===k); if(!r) 
 document.addEventListener('click',e=>{ const btn=e.target.closest('.db-range-btn'); const menu=document.querySelector('.db-range-menu'); if(btn){ menu.hidden=!menu.hidden; return; } const li=e.target.closest('.db-range-menu li[data-k]'); if(li){ if(li.dataset.k==='custom'){ menu.hidden=true; toast('사용자 설정 기간은 스케치에서 생략했어요'); return; } setRange(li.dataset.k); return; } if(menu&&!e.target.closest('.db-range')) menu.hidden=true; });
 const pick=(arr,k)=>arr.filter((_,i)=>i%Math.ceil(arr.length/k)===0);
 const stat=(l,v,d,unit)=>`<div class="db-stat"><small>${l}</small><b>${v}</b>${d==null?'':`<em class="${d>0?'up':d<0?'down':''}">${d>0?'▲':d<0?'▼':'–'} ${Math.abs(d)}% <span style="color:var(--muted);font-weight:500">${unit||'지난 7일 대비'}</span></em>`}</div>`;
-const relRow=(m,r,i)=>`<tr class="rel" data-log="${m.id}-${i}"><td>${relBadge(r.st)}</td><td><code>${r.v}</code></td><td><span class="src">${SRC[r.src]}</span></td><td>${r.m}</td><td class="num">${ago(r.t)}</td><td class="num">${dur(r.s)}</td><td><button type="button" class="more" data-menu="${m.id}-${i}" aria-label="더 보기"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button></td></tr><tr class="db-log" id="log-${m.id}-${i}"><td colspan="7"><pre><span class="dm">${r.t.replace('T',' ').slice(0,16)}</span>  빌드 시작 · 소스 ${SRC[r.src]} · ${r.v}
+const relRow=(m,r,i)=>`<tr class="rel" data-log="${m.id}-${i}"><td>${relBadge(r.st)}</td><td><code>${r.v}</code></td><td><span class="src">${SRC[r.src]}</span></td><td>${r.m}</td><td class="num">${ago(r.t)}</td><td class="num">${dur(r.s)}</td><td><button type="button" class="more" data-menu="${m.id}-${i}" aria-label="더 보기"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button></td></tr><tr class="db-log" id="log-${m.id}-${i}"><td colspan="7"><pre><span class="dm">${r.t.replace('T',' ').slice(0,16)}</span>  빌드 시작  소스 ${SRC[r.src]}  ${r.v}
 <span class="dm">+00:03</span>  에셋 압축 (312개, 48.2MB → 19.7MB)
 <span class="dm">+00:21</span>  게임 서버 스냅샷 생성
 <span class="dm">+00:40</span>  AI 심사: 콘텐츠 정책 ${r.st==='failed'?'<span class="wn">경고 1건 (폭력 묘사 수위)</span>':'<span class="ok">통과</span>'}
-<span class="dm">+00:${String(r.s%60).padStart(2,'0')}</span>  ${r.st==='failed'?'<span class="wn">게시 실패: 스크립트 오류 (boss_pattern.js:142)</span>':r.st==='review'?'심사 대기열 등록 · 보통 24시간 이내':'<span class="ok">게시 완료</span> → verse8.io/'+m.id}</pre></td></tr>`;
+<span class="dm">+00:${String(r.s%60).padStart(2,'0')}</span>  ${r.st==='failed'?'<span class="wn">게시 실패: 스크립트 오류 (boss_pattern.js:142)</span>':r.st==='review'?'심사 대기열 등록, 보통 24시간 이내':'<span class="ok">게시 완료</span> → verse8.io/'+m.id}</pre></td></tr>`;
 const dbMain=document.getElementById('dbMain'), dbSideEl=document.getElementById('dbSide'), dashPage=document.getElementById('dashPage');
 const dbToast=document.getElementById('dbToast'); let toastT;
 const toast=t=>{ dbToast.textContent=t; dbToast.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>dbToast.hidden=true,2400); };
@@ -1730,82 +1858,112 @@ const dbModal=document.getElementById('dbModal'), dbModalBody=document.getElemen
 const openModal=html=>{ dbModalBody.innerHTML=html; dbModal.hidden=false; };
 const closeModal=()=>{ dbModal.hidden=true; };
 dbModal.addEventListener('click',e=>{ if(e.target===dbModal||e.target.closest('[data-close]')) closeModal(); });
+const adDemo=()=>'<div class="adp rw"><div class="pill"><i></i>광고 보고 +50</div><div class="ad"><div class="tag"><span>AD</span><span class="x"></span></div><div class="vid"></div><div class="prog"><i></i></div></div></div>';
+const PROMO=new Set();
+const CHANNELS=[['mobile','Verse8 모바일 앱','iOS, Android Verse8 앱의 게임 목록에 들어가요. 앱 사용자가 바로 플레이할 수 있어요.','심사 5~7일'],['onestore','ONE store','원스토어 계정 로그인과 결제가 연결돼요.','심사 3~5일'],['playables','YouTube Playables','YouTube 안에서 바로 플레이돼요. 가벼운 빌드와 빠른 첫 화면이 필요해요.','심사 2~4주'],['crazy','CrazyGames','월 3천만 명이 찾는 웹 게임 포털이에요. 광고 수익은 CrazyGames 정책을 따라요.','심사 1~2주']];
+const CHREQ={ldw:new Set(['playables'])};
+const CHLOGO={play:'<span class="lg-txt" style="background:#1F2227"><img src="../img/v8-glyph.png" alt="" style="width:36px;height:36px"></span>',mobile:'<span class="lg-txt" style="background:#1F2227"><img src="../img/v8-glyph.png" alt="" style="width:36px;height:36px"></span>',onestore:'<img class="full" src="../img/ch-onestore.png" alt="ONE store">',playables:'<span class="lg-txt" style="background:var(--surface)"><svg viewBox="0 0 24 24"><path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span>',crazy:'<img class="full" src="../img/ch-crazygames.png" alt="CrazyGames">'};
+const PCH=[['Google',"<svg viewBox=\"0 0 18 18\"><path fill=\"#4285F4\" d=\"M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z\"/><path fill=\"#34A853\" d=\"M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z\"/><path fill=\"#FBBC05\" d=\"M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z\"/><path fill=\"#EA4335\" d=\"M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z\"/></svg>"],['Meta',"<svg viewBox=\"0 0 24 24\"><path fill=\"#0081FB\" d=\"M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z\"/></svg>"],['Instagram',"<svg viewBox=\"0 0 24 24\"><defs><linearGradient id=\"igg\" x1=\"0\" y1=\"1\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#FFD600\"/><stop offset=\".5\" stop-color=\"#FF0169\"/><stop offset=\"1\" stop-color=\"#7638FA\"/></linearGradient></defs><path fill=\"url(#igg)\" d=\"M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077\"/></svg>"],['TikTok',"<svg viewBox=\"0 0 24 24\"><path fill=\"#000\" d=\"M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z\"/></svg>"],['YouTube',"<svg viewBox=\"0 0 24 24\"><path fill=\"#FF0000\" d=\"M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z\"/></svg>"]];
+const PRODUCTS={ldw:[['전설 무기 상자',300,412],['부활 토큰 ×3',50,1230],['엘프 스킨',120,318]],food:[['재료 보충 팩',80,960],['황금 칼',200,215],['보상 2배 7일',150,142]],coldSteel:[['부활 토큰 ×3',50,540],['강철 갑옷',250,96]],drill:[['연료 충전',30,410]]};
+const SALES=[['2026-11-05 13:42','Emma','부활 토큰 ×3',50,'완료'],['2026-11-05 11:08','민준','전설 무기 상자',300,'완료'],['2026-11-04 22:51','sora_k','엘프 스킨',120,'환불'],['2026-11-04 19:30','Leo','부활 토큰 ×3',50,'완료'],['2026-11-04 09:12','하늘','전설 무기 상자',300,'완료']];
+const spark=(vals,color,gid,guide,max)=>{ const W=480,H=120,PAD=8; const mx=max||Math.max(...vals)*1.15; const X=i=>PAD+i*(W-PAD*2)/(vals.length-1), Y=v=>H-PAD-(v/mx)*(H-PAD*2); const d=vals.map((v,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)).join(' '); const g=guide?`<line x1="${PAD}" x2="${W-PAD}" y1="${Y(guide).toFixed(1)}" y2="${Y(guide).toFixed(1)}" stroke="#9AA1AB" stroke-dasharray="3 4" stroke-width="1"/>`:''; return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="display:block;width:100%;height:120px"><defs><linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${color}" stop-opacity=".22"/><stop offset="1" stop-color="${color}" stop-opacity="0"/></linearGradient></defs>${g}<path d="${d} L${X(vals.length-1).toFixed(1)} ${H} L${PAD} ${H} Z" fill="url(#${gid})"/><path d="${d}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/></svg>`; };
+const srvChart=(vals,W,o)=>{ const H=190,L=8,R=46,T=14,B=26; const mx=o.max; const n=vals.length; const X=i=>L+i*(W-L-R)/(n-1), Y=v=>T+(1-Math.min(v,mx)/mx)*(H-T-B); const d=vals.map((v,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)).join(' '); const grid=[0,.25,.5,.75,1].map(f=>{ const y=Y(mx*f).toFixed(1); return `<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="#E3E7EC" stroke-dasharray="2 4"/><text x="${W-R+10}" y="${(+y+4).toFixed(1)}" font-size="11" fill="#9AA1AB" font-family="Roboto,sans-serif">${Math.round(mx*f)}${o.unit||''}</text>`; }).join(''); const xl=[0,15,30,45,60].map(mn=>`<text x="${X(mn).toFixed(1)}" y="${H-8}" font-size="11" fill="#9AA1AB" font-family="Roboto,sans-serif" text-anchor="${mn===0?'start':mn===60?'end':'middle'}">${mn===60?'지금':'-'+(60-mn)+'분'}</text>`).join(''); const g=o.guide?`<line x1="${L}" x2="${W-R}" y1="${Y(o.guide).toFixed(1)}" y2="${Y(o.guide).toFixed(1)}" stroke="#9AA1AB" stroke-dasharray="3 4"/>`:''; const last=vals[n-1]; return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" style="display:block"><defs><linearGradient id="${o.id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${o.color}" stop-opacity=".22"/><stop offset="1" stop-color="${o.color}" stop-opacity="0"/></linearGradient></defs>${grid}${g}${xl}<path d="${d} L${X(n-1).toFixed(1)} ${Y(0).toFixed(1)} L${L} ${Y(0).toFixed(1)} Z" fill="url(#${o.id})"/><path d="${d}" fill="none" stroke="${o.color}" stroke-width="2" stroke-linejoin="round"/><circle cx="${X(n-1).toFixed(1)}" cy="${Y(last).toFixed(1)}" r="4" fill="${o.color}"><animate attributeName="r" values="4;6.5;4" dur="1.6s" repeatCount="indefinite"/></circle></svg>`; };
+let srvTimer=null;
+const srvStart=m=>{ const v=m.srv; const busy=v.st==='busy'; if(!v._ccu){ v._ccu=srvSeries(v.ccu,busy?9:7,61,1); v._lat=srvSeries(v.p95,busy?70:9,61,2); }
+  const draw=()=>{ const c=document.getElementById('srvCcu'), l=document.getElementById('srvLat'); if(!c||!l){ clearInterval(srvTimer); return; } const W=c.clientWidth||560; c.innerHTML=srvChart(v._ccu,W,{id:'sg1',color:'#2F6BFF',max:120,guide:100}); l.innerHTML=srvChart(v._lat,W,{id:'sg2',color:busy?'#E5484D':'#8A919C',max:busy?600:100,unit:'ms'}); const cc=v._ccu[v._ccu.length-1], lt=v._lat[v._lat.length-1]; const set=(id,t)=>{ const e=document.getElementById(id); if(e) e.textContent=t; }; set('srvN_ccu',cc+'명'); set('srvN_p95',lt+'ms'); set('srvB_ccu',cc); set('srvB_p95',lt+'ms'); set('srvN_mps',Math.round(cc*13.6)); };
+  draw(); clearInterval(srvTimer); srvTimer=setInterval(()=>{ const rnd=(a,b)=>a+Math.random()*(b-a); const base=v.ccu, cur=v._ccu[v._ccu.length-1]; const cc=Math.max(0,Math.round(cur+rnd(-3,3)+(base-cur)*.15)); const lb=v.p95, lc=v._lat[v._lat.length-1]; const lt=Math.max(10,Math.round(lc+rnd(busy?-28:-5,busy?28:5)+(lb-lc)*.15)); v._ccu.push(cc); v._ccu.shift(); v._lat.push(lt); v._lat.shift(); draw(); },2000); };
+const srvSeries=(base,amp,n,seed)=>Array.from({length:n},(_,i)=>Math.max(0,Math.round(base+amp*Math.sin(i/3.1+seed)+amp*.45*Math.sin(i/1.3+seed*2))));
+const EARN={ldw:[470,350],food:[320,290],coldSteel:[150,160],drill:[72,28]};
 const pages={
   home(){ if(!MYG.length) return `<div class="db-head"><div><h1>안녕하세요, ${ME.name}</h1><p>첫 게임을 만들면 여기가 채워집니다.</p></div></div>
     <div class="db-onb"><div class="db-onb-h"><h2>Verse8에서 시작하기</h2><p>만들고, 심사받고, 공개하고, 수익을 내는 네 단계예요. 지금은 첫 단계입니다.</p></div>
-    <ol class="db-steps">${[['만들기','프롬프트 한 줄로 게임을 만들거나 MCP로 연결','on'],['심사','AI 심사는 보통 24시간 안에 끝나요',''],['공개','Explore와 검색에 노출돼요',''],['수익화','광고 · 인게임 구매 · 멤버십 수익을 정산',''] ].map(([t,d,c],i)=>`<li class="${c}"><i>${i+1}</i><div><b>${t}</b><small>${d}</small></div></li>`).join('')}</ol>
-    <div class="ep-ways db-onb-ways"><article class="ep-card"><div class="ep-icon"><div class="tile t-v8 ep-tile"><img src="../img/v8-glyph.png" alt=""></div></div><h3>Verse8에서 만들기</h3><p>프롬프트 한 줄로 게임을 만들고 바로 출시하세요. 에디터, 호스팅, 정산까지 Verse8이 제공합니다.</p><a class="btn btn-grad" href="#"><span>게임 만들기</span></a></article><article class="ep-card"><div class="ep-icon"><div class="tile ep-tile t-gpt" aria-label="GPT"><svg viewBox="0 0 24 24"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg></div></div><h3>Claude · GPT로 만든 게임 연결</h3><p>이미 만든 게임이 있다면 MCP로 연결하세요. 서버 없이 바로 배포되고, 심사 후 수익화가 시작됩니다.</p><a class="btn btn-black" href="#" data-toast="MCP 연결 문서로 이동합니다">MCP 연결하기</a></article></div></div>
+    <ol class="db-steps">${[['만들기','프롬프트 한 줄로 게임을 만들거나 MCP로 연결','on'],['심사','AI 심사는 보통 24시간 안에 끝나요',''],['공개','Play와 검색에 노출돼요',''],['수익화','광고와 인게임 구매 수익을 정산',''] ].map(([t,d,c],i)=>`<li class="${c}"><i>${i+1}</i><div><b>${t}</b><small>${d}</small></div></li>`).join('')}</ol>
+    <div class="ep-ways db-onb-ways"><article class="ep-card"><div class="ep-icon"><div class="tile t-v8 ep-tile"><img src="../img/v8-glyph.png" alt=""></div></div><h3>Verse8에서 만들기</h3><p>프롬프트 한 줄로 게임을 만들고 바로 출시하세요. 에디터, 호스팅, 정산까지 Verse8이 제공합니다.</p><a class="btn btn-grad" href="#"><span>게임 만들기</span></a></article><article class="ep-card"><div class="ep-icon"><div class="tile ep-tile t-gpt" aria-label="GPT"><svg viewBox="0 0 24 24"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg></div></div><h3>Claude, GPT로 만든 게임 연결</h3><p>이미 만든 게임이 있다면 MCP로 연결하세요. 서버 없이 바로 배포되고, 심사 후 수익화가 시작됩니다.</p><a class="btn btn-black" href="#" data-toast="MCP 연결 문서로 이동합니다">MCP 연결하기</a></article></div></div>
     <div class="db-stats" style="margin-top:32px">${stat('최근 7일 플레이','0',null)}${stat('누적 플레이','0',null)}${stat('누적 좋아요','0',null)}${stat('이번 달 수익','$0.00',null)}</div>
     <p class="hint" style="margin-top:16px;text-align:center"><a href="#" data-demo="restore" style="color:var(--muted);text-decoration:underline">스케치: 샘플 데이터로 되돌리기</a></p>`;
     const live=MYG.filter(m=>m.st==='live'); const d7=MYG.reduce((a,m)=>a+m.d7,0); const c=chart('home',dbRange.n,d7/7,dbRange.back);
-    return `<div class="db-head"><div><h1>안녕하세요, ${ME.name}</h1></div></div>
+    const busyG=MYG.filter(m=>m.srv&&m.srv.st==='busy'), srvG=MYG.filter(m=>m.srv); const srvLine=srvG.length?`<a class="db-srvline ${busyG.length?'busy':''}" href="#dashboard/games/${(busyG[0]||srvG[0]).id}/server"><i></i><b>${busyG.length?busyG[0].g.t+' 서버가 혼잡해요':'게임서버 '+srvG.length+'개 모두 원활'}</b><span>동시 접속 ${srvG.reduce((a,m)=>a+m.srv.ccu,0)}명, 지연 ${Math.max(...srvG.map(m=>m.srv.p95))}ms</span><em>${busyG.length?'자세히':'서버 보기'}</em></a>`:'';
+    return `<div class="db-head"><div><h1>안녕하세요, ${ME.name}</h1></div></div>${srvLine}
     <div class="db-stats">${stat('최근 7일 플레이',dbFmt(d7),6.2)}${stat('누적 플레이',dbFmt(MYG.reduce((a,m)=>a+m.g.p,0)),null)}${stat('누적 좋아요',dbFmt(MYG.reduce((a,m)=>a+m.g.l,0)),2.8)}${stat('이번 달 수익','$1,840',32,'지난달 대비')}</div>
     <div class="db-sec"><div class="db-sec-h"><h2>플레이</h2>${rangePicker()}</div><div class="db-chart"><div class="top"><b>${dbFmt(c.v.reduce((a,b)=>a+b,0))}</b><small style="color:var(--muted)">전체 게임 합계</small><span class="lg"><span><i></i>이번 기간</span><span><i class="p"></i>이전 기간</span></span></div>${c.svg}</div></div>
-    <div class="db-sec"><div class="db-sec-h"><h2>최근 게시한 게임</h2><a href="#dashboard/games">전체 보기</a></div><table class="db-table games"><thead><tr><th>게임</th><th>상태</th><th class="num">플레이</th><th class="num">좋아요</th><th class="num">최근 게시</th></tr></thead><tbody>${[...MYG].filter(m=>m.pub).sort((a,b)=>new Date(b.pub)-new Date(a.pub)).slice(0,4).map(gameRow).join('')}</tbody></table></div>
-    <div class="db-sec"><div class="db-sec-h"><h2>최근 활동</h2></div><div class="db-list">${ACTS.map(a=>`<div class="db-row"><div class="ico">${dbIco[a.ic]}</div><div class="t">${a.t}</div><span class="when">${ago(a.w)}</span></div>`).join('')}</div></div>`; },
-  games(){ return `<div class="db-head"><div><h1>내 게임</h1><p>게시한 게임과 초안을 관리합니다.</p></div></div>
-    <div class="db-tools"><label class="db-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="dbQ" placeholder="게임 검색" autocomplete="off"></label><span class="sp"></span>${['all','live','review','private','draft'].map(s=>`<button type="button" class="chip${s==='all'?' on':''}" data-f="${s}">${s==='all'?'전체':DBS[s]}</button>`).join('')}</div>
-    ${MYG.length?`<table class="db-table games"><thead><tr><th>게임</th><th>상태</th><th class="num">플레이</th><th class="num">좋아요</th><th class="num">최근 게시</th></tr></thead><tbody id="dbGameGrid">${MYG.map(gameRow).join('')}</tbody></table>`:emptyBox('games')}`; },
-  analytics(){ if(!MYG.length) return `<div class="db-head"><div><h1>분석</h1><p>모든 게임의 플레이와 반응을 한곳에서 봅니다.</p></div></div>`+emptyBox('analytics');
-    const c=chart('an',dbRange.n,MYG.reduce((a,m)=>a+m.d7,0)/7,dbRange.back); const vs='이전 '+dbRange.n+'일 대비';
-    return `<div class="db-head"><div><h1>분석</h1><p>모든 게임의 플레이와 반응을 한곳에서 봅니다.</p></div><div class="acts">${rangePicker()}</div></div>
-    <div class="db-stats">${stat('플레이',dbFmt(c.v.reduce((a,b)=>a+b,0)),5.1,vs)}${stat('플레이어',dbFmt(Math.round(c.v.reduce((a,b)=>a+b,0)*.37)),3.9,vs)}${stat('평균 플레이 시간','7분 42초',-1.2,vs)}${stat('좋아요',dbFmt(1240),8.5,vs)}</div>
-    <div class="db-sec"><div class="db-chart"><div class="top"><b>일별 플레이</b><span class="lg"><span><i></i>이번 기간</span><span><i class="p"></i>이전 기간</span></span></div>${c.svg}</div></div>
-    <div class="db-sec db-two"><div><div class="db-sec-h"><h2>유입 경로</h2></div><div class="db-bars">${[['Explore 추천',55],['검색',20],['크리에이터 프로필',13],['외부 링크',12]].map(([n,p])=>`<div class="db-bar"><span>${n}</span><i style="--w:${p}%"></i><b>${p}%</b></div>`).join('')}</div></div><div><div class="db-sec-h"><h2>플랫폼</h2></div><div class="db-bars">${[['PC',61],['모바일 웹',33],['모바일 앱',6]].map(([n,p])=>`<div class="db-bar"><span>${n}</span><i style="--w:${p}%"></i><b>${p}%</b></div>`).join('')}</div></div></div>
-    <div class="db-sec"><div class="db-sec-h"><h2>게임별</h2></div><table class="db-table pay"><colgroup><col data-w="L-40"><col data-w="220"><col data-w="(W-L-180)/4"><col data-w="(W-L-180)/4"><col data-w="(W-L-180)/4"><col data-w="(W-L-180)/4"></colgroup><thead><tr><th>게임</th><th>상태</th><th class="num">7일 플레이</th><th class="num">변화</th><th class="num">누적 플레이</th><th class="num">좋아요</th></tr></thead><tbody>${[...MYG].sort((a,b)=>b.d7-a.d7).map(m=>`<tr><td><a href="#dashboard/games/${m.id}/analytics" style="font-weight:600">${m.g.t}</a></td><td>${badge(m.st)}</td><td class="num">${dbFmt(m.d7)}</td><td class="num" style="color:${m.d7p>0?'#16A34A':m.d7p<0?'#E5484D':'var(--muted)'}">${m.d7p>0?'+':''}${m.d7p}%</td><td class="num">${dbFmt(m.g.p)}</td><td class="num">${dbFmt(m.g.l)}</td></tr>`).join('')}</tbody></table></div>`; },
+    <div class="db-sec"><div class="db-sec-h"><h2>최근 게시한 게임</h2><a href="#dashboard/games">전체 보기</a></div><table class="db-table games"><thead><tr><th>게임</th><th>상태</th><th>서버</th><th class="num">플레이</th><th class="num">좋아요</th><th class="num">최근 게시</th></tr></thead><tbody>${[...MYG].filter(m=>m.pub).sort((a,b)=>new Date(b.pub)-new Date(a.pub)).slice(0,4).map(gameRow).join('')}</tbody></table></div>
+    <div class="db-sec db-two"><div><div class="db-sec-h"><h2>유입 경로</h2></div><div class="db-bars">${[['Play 추천',55],['검색',20],['크리에이터 프로필',13],['외부 링크',12]].map(([n,p])=>`<div class="db-bar"><span>${n}</span><i style="--w:${p}%"></i><b>${p}%</b></div>`).join('')}</div></div><div><div class="db-sec-h"><h2>최근 활동</h2></div><div class="db-list">${ACTS.map(a=>`<div class="db-row"><div class="ico">${dbIco[a.ic]}</div><div class="t">${a.t}</div><span class="when">${ago(a.w)}</span></div>`).join('')}</div></div></div></div>`; },
+  games(){ return `<div class="db-head"><div><h1>내 게임</h1><p>게시한 게임과 MCP로 연결한 게임을 관리합니다.</p></div></div>
+    <div class="db-tools"><label class="db-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="dbQ" placeholder="게임 검색" autocomplete="off"></label><span class="sp"></span>${['all','live','review','private','linked'].map(s=>`<button type="button" class="chip${s==='all'?' on':''}" data-f="${s}">${s==='all'?'전체':DBS[s]}</button>`).join('')}</div>
+    ${MYG.length?`<table class="db-table games"><thead><tr><th>게임</th><th>상태</th><th>서버</th><th class="num">플레이</th><th class="num">좋아요</th><th class="num">최근 게시</th></tr></thead><tbody id="dbGameGrid">${MYG.map(gameRow).join('')}</tbody></table>`:emptyBox('games')}`; },
   earnings(){ if(!MYG.length) return `<div class="db-head"><div><h1>수익</h1><p>게임 수익과 정산 내역입니다.</p></div></div>`+emptyBox('earnings');
     const c=chart('earn',dbRange.n,1840/30,dbRange.back); const vs='이전 '+dbRange.n+'일 대비';
-    const byGame=[['ldw',820],['food',610],['coldSteel',310],['drill',100]].map(([id,v])=>({m:MYG.find(x=>x.id===id),v})).filter(x=>x.m);
+    const PT=Math.round(c.v.reduce((a,b)=>a+b,0)), SC=PT/1840; const byGame=Object.entries(EARN).map(([id,e0])=>{ const e=e0.map(x=>Math.round(x*SC)); return {m:MYG.find(x=>x.id===id),e,v:e[0]+e[1]}; }).filter(x=>x.m).sort((a,b)=>b.v-a.v); let TT=byGame.reduce((a,x)=>a+x.v,0); if(byGame.length&&TT!==PT){ const d=PT-TT; byGame[0].e[0]+=d; byGame[0].v+=d; TT=PT; }
     const pay=[['2026년 11월','$1,840','12월 5일 지급 예정','pending'],['2026년 10월','$1,394','11월 5일 지급 완료','done'],['2026년 9월','$1,120','10월 5일 지급 완료','done'],['2026년 8월','$860','9월 5일 지급 완료','done']];
     return `<div class="rev"><div class="db-head"><div><h1>수익</h1><p>게임 수익과 정산 내역입니다. 심사를 통과한 공개 게임에서 발생한 수익이 매월 5일에 정산돼요.</p></div><div class="acts">${rangePicker()}</div></div>
     <div class="db-stats">${stat('이번 달 수익','$1,840',32,'지난달 대비')}${stat('기간 수익',dbFmt(Math.round(c.v.reduce((a,b)=>a+b,0))).replace(/^/,'$'),18.4,vs)}${stat('누적 수익','$5,214',null)}${stat('다음 정산 예정','$1,840',null)}</div>
     <div class="db-sec"><div class="db-chart"><div class="top"><b>일별 수익</b><span class="lg"><span><i></i>이번 기간</span><span><i class="p"></i>이전 기간</span></span></div>${c.svg}</div></div>
-    <div class="db-sec"><div class="db-sec-h"><h2>수익 항목</h2></div><table class="db-table"><thead><tr><th>항목</th><th>설명</th><th class="num">이번 달</th><th class="num">비중</th></tr></thead><tbody>${[['광고 수익','게임 안에 붙는 보상형 광고와 배너 광고 수익입니다. Verse8이 광고를 연결하고 수익을 나눕니다.',698,38],['인게임 구매','플레이어가 게임 안에서 구매한 아이템, 재화, 스킨 매출입니다.',607,33],['멤버십','내 프로필을 구독한 팬이 내는 월 구독료입니다. 멤버 전용 캐릭터나 조기 공개 같은 혜택과 묶입니다.',239,13],['플레이 보상','플레이 시간과 유지율을 기준으로 Verse8이 지급하는 크리에이터 보상입니다.',203,11],['이벤트 & IP','게임 잼 상금과 MSU Space 같은 IP 파트너 인센티브입니다.',93,5]].map(([n,d,v,pc])=>`<tr><td style="font-weight:600;white-space:nowrap">${n}</td><td style="color:var(--muted)">${d}</td><td class="num" style="font-weight:700">$${v.toLocaleString()}</td><td class="num"><span style="display:inline-flex;align-items:center;gap:8px;justify-content:flex-end"><i style="display:inline-block;width:72px;height:6px;border-radius:3px;background:var(--surface-2);overflow:hidden"><i style="display:block;height:100%;width:${pc}%;background:#6A4CFF;border-radius:3px"></i></i>${pc}%</span></td></tr>`).join('')}</tbody></table></div>
-    <div class="db-sec db-two"><div><div class="db-sec-h"><h2>게임별 수익</h2><a href="#" data-allgames>전체 보기</a></div><div class="db-bars wide">${byGame.slice(0,5).map(({m,v})=>`<div class="db-bar"><span>${m.g.t}</span><i style="--w:${Math.round(v/1840*100)}%"></i><b>$${v.toLocaleString()}</b><small>${Math.round(v/1840*100)}%</small></div>`).join('')}${byGame.length>5?(()=>{ const rest=byGame.slice(5), rv=rest.reduce((a,x)=>a+x.v,0); return `<div class="db-bar"><span style="color:var(--muted)">그 외 ${rest.length}개</span><i style="--w:${Math.round(rv/1840*100)}%"></i><b>$${rv.toLocaleString()}</b><small>${Math.round(rv/1840*100)}%</small></div>`; })():''}</div></div>
-    <div><div class="db-sec-h"><h2>플랫폼별 수익</h2></div><div class="db-bars">${[['PC',58],['모바일 웹',34],['모바일 앱',8]].map(([n,p])=>`<div class="db-bar"><span>${n}</span><i style="--w:${p}%"></i><b>${p}%</b></div>`).join('')}</div></div></div>
-    <div class="db-sec"><div class="db-sec-h"><h2>정산 내역</h2><a href="#" data-toast="정산 계좌 설정은 스케치에서 생략했어요">정산 계좌 관리</a></div><table class="db-table pay"><colgroup><col data-w="L-236"><col data-w="140"><col data-w="144"><col><col data-w="120"></colgroup><thead><tr><th>정산 월</th><th class="num">금액</th><th></th><th>상태</th><th></th></tr></thead><tbody>${pay.map(r=>`<tr><td>${r[0]}</td><td class="num" style="font-weight:700">${r[1]}</td><td></td><td><span class="db-badge ${r[3]==='done'?'live':'building'}">${r[2]}</span></td><td style="text-align:right"><button type="button" class="btn btn-line" style="height:32px;font-size:13px" data-toast="명세서 다운로드는 스케치에서 생략했어요">명세서</button></td></tr>`).join('')}</tbody></table></div></div>`; },
-  credits(){ const rows=[['2026.11.04 17:20','Agent 8 · 새 스테이지 생성','Super Drill Man',-2.40],['2026.11.01 20:30','Agent 8 · 테마 에셋 생성','Food Slicer',-1.85],['2026.10.30 22:50','Agent 8 · 밸런스 수정','Dungeons and Dungeoners',-0.60],['2026.10.23 14:00','Agent 8 · 캐릭터 추가','Last Dungeon Wars',-3.20],['2026.10.20 09:00','크레딧 충전','—',20.00]];
+    <div class="db-sec"><div class="db-sec-h"><h2>게임별 수익</h2><span class="db-sec-note">${dbRange.l}</span></div><table class="db-table games pay byg"><colgroup><col data-w="L-40"><col data-w="(W-L-80)/3"><col data-w="(W-L-80)/3"><col data-w="(W-L-80)/3"><col data-w="120"></colgroup><thead><tr><th>게임</th><th class="num">광고</th><th class="num">인게임 구매</th><th class="num">합계</th><th class="num">비중</th></tr></thead><tbody>${byGame.map(({m,e,v})=>`<tr class="grow" data-go="#dashboard/games/${m.id}/monet"><td><div class="gcell"><img src="../img/${m.g.i}" alt=""><div><b>${m.g.t}</b><small>verse8.io/${m.id}</small></div></div></td>${e.map(x=>`<td class="num"${x?'':' style="color:var(--muted)"'}>$${x.toLocaleString()}</td>`).join('')}<td class="num" style="font-weight:700">$${v.toLocaleString()}</td><td class="num">${Math.round(v/TT*100)}%</td></tr>`).join('')}</tbody><tfoot><tr><td>합계</td>${[0,1].map(i=>`<td class="num">$${byGame.reduce((a,x)=>a+x.e[i],0).toLocaleString()}</td>`).join('')}<td class="num">$${TT.toLocaleString()}</td><td class="num">100%</td></tr></tfoot></table></div>
+    <div class="db-sec"><div class="db-sec-h"><h2>정산 내역</h2><a href="#" data-toast="정산 계좌 설정은 스케치에서 생략했어요">정산 계좌 관리</a></div><table class="db-table pay"><colgroup><col data-w="L-40"><col data-w="(W-L-80)/3"><col data-w="(W-L-80)/3"><col></colgroup><thead><tr><th>정산 월</th><th class="num">금액</th><th class="num">상태</th><th></th></tr></thead><tbody>${pay.map(r=>`<tr><td>${r[0]}</td><td class="num" style="font-weight:700">${r[1]}</td><td class="num"><span class="db-badge ${r[3]==='done'?'paid':'pending'}">${r[2]}</span></td><td style="text-align:right"><button type="button" class="btn btn-line" style="height:32px;font-size:13px" data-toast="명세서 다운로드는 스케치에서 생략했어요">명세서</button></td></tr>`).join('')}</tbody></table></div></div>`; },
+  credits(){ const rows=[['2026.11.04 17:20','<b style="font-weight:600">Agent 8</b> 새 스테이지 생성','Super Drill Man',-2.40],['2026.11.01 20:30','<b style="font-weight:600">Agent 8</b> 테마 에셋 생성','Food Slicer',-1.85],['2026.10.30 22:50','<b style="font-weight:600">Agent 8</b> 밸런스 수정','Dungeons and Dungeoners',-0.60],['2026.10.23 14:00','<b style="font-weight:600">Agent 8</b> 캐릭터 추가','Last Dungeon Wars',-3.20],['2026.10.20 09:00','크레딧 충전','—',20.00]];
     return `<div class="db-head"><div><h1>크레딧</h1><p>크레딧은 Agent 8로 게임을 만들고 수정할 때 사용됩니다.</p></div></div>
     <div class="db-balance"><div><small>크레딧 잔액</small><b>$${ME.credits.toFixed(2)}</b></div><div class="acts"><button type="button" class="btn btn-line" data-toast="코드 등록은 스케치에서 생략했어요">코드 등록</button><button type="button" class="btn btn-grad" data-toast="충전 결제는 스케치에서 생략했어요"><span>충전하기</span></button></div></div>
     <div class="db-sec"><div class="db-sec-h"><h2>사용 내역</h2></div><table class="db-table"><thead><tr><th>일시</th><th>내용</th><th>게임</th><th class="num">금액</th></tr></thead><tbody>${rows.map(r=>`<tr><td class="num" style="text-align:left;color:var(--muted)">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td class="num" style="color:${r[3]>0?'#16A34A':'inherit'}">${r[3]>0?'+':'−'}$${Math.abs(r[3]).toFixed(2)}</td></tr>`).join('')}</tbody></table></div>`; },
   settings(){ return `<div class="db-head"><div><h1>설정</h1><p>프로필, 계정, 알림과 화면 설정입니다.</p></div></div>
     <div class="db-form">
-      <div class="db-field"><label>프로필<small>공개 프로필과 게임 상세의 바이라인에 표시됩니다.</small></label><div><div class="db-thumb"><img src="../img/avatar.jpg" alt=""><div><button type="button" class="btn btn-line" data-toast="사진 변경은 스케치에서 생략했어요">사진 변경</button><p class="hint">정사각형 · 2MB 이하</p></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px"><div><p class="hint" style="margin:0 0 6px">닉네임</p><input class="db-in" value="${ME.name}"></div><div><p class="hint" style="margin:0 0 6px">핸들</p><input class="db-in" value="${ME.handle}"></div></div><p class="hint" style="margin-top:12px;margin-bottom:6px">소개</p><textarea class="db-in" placeholder="나를 소개해 주세요">${PF.bio}</textarea></div></div>
-      <div class="db-field"><label>계정<small>로그인 수단과 이메일입니다.</small></label><div><div class="db-switch"><div><b>${ME.email}</b><small>이메일 · 메일 링크 로그인</small></div><span class="db-badge live">인증됨</span></div><div class="db-switch"><div><b>Google</b><small>연결됨 · ${ME.email}</small></div><button type="button" class="btn btn-line" data-toast="연결 해제는 스케치에서 생략했어요">연결 해제</button></div></div></div>
-      <div class="db-field"><label>알림<small>이메일로 받을 알림을 고릅니다.</small></label><div>${[['심사 결과','게시 요청의 승인 · 반려 알림',true],['새 댓글','내 게임에 댓글이 달리면 알림',true],['주간 리포트','매주 월요일 플레이 요약',false],['크레딧 부족','잔액이 $2 아래로 내려가면 알림',true]].map(([t,s,on])=>`<div class="db-switch"><div><b>${t}</b><small>${s}</small></div><button type="button" class="tg${on?' on':''}" data-toggle aria-label="${t}"></button></div>`).join('')}</div></div>
+      <div class="db-field"><label>프로필<small>공개 프로필과 게임 상세의 바이라인에 표시됩니다.</small></label><div><div class="db-thumb"><img src="../img/avatar.jpg" alt=""><div><button type="button" class="btn btn-line" data-toast="사진 변경은 스케치에서 생략했어요">사진 변경</button><p class="hint">정사각형, 2MB 이하</p></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px"><div><p class="hint" style="margin:0 0 6px">닉네임</p><input class="db-in" value="${ME.name}"></div><div><p class="hint" style="margin:0 0 6px">핸들</p><input class="db-in" value="${ME.handle}"></div></div><p class="hint" style="margin-top:12px;margin-bottom:6px">소개</p><textarea class="db-in" placeholder="나를 소개해 주세요">${PF.bio}</textarea></div></div>
+      <div class="db-field"><label>계정<small>로그인 수단과 이메일입니다.</small></label><div><div class="db-switch"><div><b>${ME.email}</b><small>이메일로 메일 링크 로그인</small></div><span class="db-badge live">인증됨</span></div><div class="db-switch"><div><b>Google</b><small>연결됨, ${ME.email}</small></div><button type="button" class="btn btn-line" data-toast="연결 해제는 스케치에서 생략했어요">연결 해제</button></div></div></div>
+      <div class="db-field"><label>알림<small>이메일로 받을 알림을 고릅니다.</small></label><div>${[['심사 결과','게시 요청의 승인, 반려 알림',true],['새 댓글','내 게임에 댓글이 달리면 알림',true],['주간 리포트','매주 월요일 플레이 요약',false],['크레딧 부족','잔액이 $2 아래로 내려가면 알림',true]].map(([t,s,on])=>`<div class="db-switch"><div><b>${t}</b><small>${s}</small></div><button type="button" class="tg${on?' on':''}" data-toggle aria-label="${t}"></button></div>`).join('')}</div></div>
       <div class="db-field"><label>테마<small>로그인 상태에서 사이트 전체에 적용됩니다. 로그아웃하면 라이트로 돌아가요.</small></label><div><span class="db-seg" id="dbThemeSeg">${[['light','라이트'],['dark','다크']].map(([k,l])=>`<button type="button" data-theme="${k}">${l}</button>`).join('')}</span></div></div>
-      <div class="db-field"><label>스케치 보기<small>발표용. 게임이 없는 신규 크리에이터 화면을 봅니다.</small></label><div><div class="db-switch"><div><b>신규 크리에이터 상태로 보기</b><small>켜면 게임 · 통계가 비어 있는 상태로 대시보드를 보여줘요</small></div><button type="button" class="tg${MYG.length?'':' on'}" data-demo="toggle" aria-label="신규 크리에이터 상태"></button></div></div></div>
+      <div class="db-field"><label>스케치 보기<small>발표용. 게임이 없는 신규 크리에이터 화면을 봅니다.</small></label><div><div class="db-switch"><div><b>신규 크리에이터 상태로 보기</b><small>켜면 게임과 통계가 비어 있는 상태로 대시보드를 보여줘요</small></div><button type="button" class="tg${MYG.length?'':' on'}" data-demo="toggle" aria-label="신규 크리에이터 상태"></button></div></div></div>
       <div class="db-field"><label>로그아웃</label><div><button type="button" class="btn btn-line" id="dbSignOut">로그아웃</button></div></div>
     </div>
     <div class="db-formfoot"><button type="button" class="btn btn-black" data-toast="저장했어요">저장</button></div>`; },
-  game(id,tab){ const m=MYG.find(x=>x.id===id); if(!m) return pages.games(); tab=tab||'overview'; const T=[['overview','개요'],['releases','릴리스'],['store','스토어 정보'],['analytics','분석'],['settings','설정']];
+  game(id,tab){ const m=MYG.find(x=>x.id===id); if(!m) return pages.games(); tab=tab==='store'?'settings':(['releases','server','launch','monet','settings'].includes(tab)?tab:'overview'); const T=[['overview','개요'],['releases','릴리스'],['server','서버'],['monet','수익화'],['launch','출시'],['settings','설정']];
     const cur=m.rel.find(r=>r.st==='live'); const c=chart('g'+id,dbRange.n,m.d7/7,dbRange.back);
     const body={
-      overview:()=>`${cur?`<div class="db-tile"><img src="../img/${m.g.i}" alt=""><div><div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><h2>현재 공개 버전</h2></div><div class="db-kv"><small>버전</small><span><code>${cur.v}</code> ${cur.m}</span><small>소스</small><span>${SRC[cur.src]}</span><small>게시</small><span>${cur.t.replace('T',' ').slice(0,16)} (${ago(cur.t)})</span><small>소요</small><span>${dur(cur.s)}</span></div><div class="acts">${m.src==='mcp'?'<button type="button" class="btn btn-grad" data-toast="MCP 연결 정보는 문서로 안내합니다"><span>MCP 연결 정보</span></button>':'<a class="btn btn-grad" href="#"><span>에디터에서 열기</span></a>'}<a class="btn btn-line" href="#game">게임 보기</a></div></div></div>`:`<div class="db-empty"><div class="ic">${dbIco.rocket}</div><h2>${m.st==='review'?'심사 중이에요':'아직 공개하지 않았어요'}</h2><p>${m.st==='review'?'보통 24시간 안에 결과를 알려드려요. 승인되면 자동으로 공개됩니다.':'에디터에서 Launch하거나 MCP로 보내면 심사 후 공개됩니다.'}</p>${m.st==='review'?'':'<a class="btn btn-grad" href="#"><span>에디터에서 열기</span></a>'}</div>`}
-        <div class="db-sec db-stats" style="margin-top:24px">${stat('최근 7일 플레이',dbFmt(m.d7),m.d7p)}${stat('누적 플레이',dbFmt(m.g.p),null)}${stat('좋아요',dbFmt(m.g.l),null)}${stat('평균 플레이 시간','6분 10초',null)}</div>
-        <div class="db-sec"><div class="db-sec-h"><h2>최근 릴리스</h2><a href="#dashboard/games/${m.id}/releases">전체 보기</a></div><table class="db-table"><tbody>${m.rel.slice(0,3).map((r,i)=>relRow(m,r,i)).join('')||'<tr><td style="color:var(--muted)">릴리스가 없습니다.</td></tr>'}</tbody></table></div>`,
-      releases:()=>`<table class="db-table"><thead><tr><th>상태</th><th>버전</th><th>소스</th><th>메모</th><th class="num">게시</th><th class="num">소요</th><th></th></tr></thead><tbody>${m.rel.map((r,i)=>relRow(m,r,i)).join('')||'<tr><td colspan="7" style="color:var(--muted);text-align:center;padding:40px">아직 릴리스가 없습니다. 에디터에서 Launch하거나 MCP로 보내면 여기에 쌓여요.</td></tr>'}</tbody></table><p class="hint" style="margin-top:10px">${m.src==='mcp'?'MCP로 보낸 버전이 쌓입니다.':'에디터에서 Launch한 버전이 쌓입니다.'} 행을 누르면 게시 로그가 열리고, 롤백은 게시가 끝난 버전에만 할 수 있어요.</p>`,
+      overview:()=>`${cur?`<div class="db-tile"><img src="../img/${m.g.i}" alt=""><div><div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><h2>현재 공개 버전</h2></div><div class="db-kv"><small>버전</small><span><code>${cur.v}</code> ${cur.m}</span><small>소스</small><span>${SRC[cur.src]}</span><small>게시</small><span>${cur.t.replace('T',' ').slice(0,16)} (${ago(cur.t)})</span><small>소요</small><span>${dur(cur.s)}</span><small>서버</small><span>${m.srv?`<span class="srv ${m.srv.st}" style="font-weight:600"><span class="srv-dot ${m.srv.st}"></span>${m.srv.st==='busy'?'혼잡':'원활'}</span> 동시 접속 ${m.srv.ccu}명, 지연 ${m.srv.p95}ms`:'없음(싱글 플레이)'}</span></div><div class="acts">${m.src==='mcp'?'<button type="button" class="btn btn-grad" data-toast="MCP 연결 정보는 문서로 안내합니다"><span>MCP 연결 정보</span></button>':'<a class="btn btn-grad" href="#"><span>에디터에서 열기</span></a>'}<a class="btn btn-line" href="#game">게임 보기</a></div></div></div>`:`<div class="db-empty"><h2>${m.st==='review'?'심사 중이에요':m.src==='mcp'?'첫 배포를 기다리고 있어요':'아직 공개하지 않았어요'}</h2><p>${m.st==='review'?'보통 24시간 안에 결과를 알려드려요. 승인되면 자동으로 공개됩니다.':m.src==='mcp'?'Claude, Codex 프롬프트창에서 말하면 돼요. 대시보드에서는 결과를 확인하고 운영 설정만 바꿉니다.':'에디터에서 Launch하면 심사 후 공개됩니다.'}</p>${m.st!=='review'&&m.src==='mcp'?`<ol class="db-steps">${[['프로젝트 만들기','“이 게임 Verse8에 올려줘” 완료','done'],['배포','“배포해줘”라고 하면 미리보기 주소가 생겨요','on'],['게시 요청','“게시해줘”라고 하면 제목, 소개, 썸네일을 확인하고 심사에 보내요',''],['심사와 공개','첫 게시만 심사해요. 승인되면 주소가 생기고 Play에 노출되며, 그 뒤 업데이트는 자동 검사 후 바로 반영돼요','']].map(([t,d,c],i)=>`<li class="${c}"><i>${c==='done'?'✓':i+1}</i><div><b>${t}</b><small>${d}</small></div></li>`).join('')}</ol>`:''}${m.st==='review'?'':m.src==='mcp'?'<button type="button" class="btn btn-line" data-toast="MCP 연결 정보는 문서로 안내합니다">MCP 연결 정보</button>':'<a class="btn btn-grad" href="#"><span>에디터에서 열기</span></a>'}</div>`}
+${m.rel.length?`        <div class="db-sec db-stats" style="margin-top:24px">${stat('최근 7일 플레이',dbFmt(m.d7),m.d7p)}${stat('누적 플레이',dbFmt(m.g.p),null)}${stat('좋아요',dbFmt(m.g.l),null)}${stat('평균 플레이 시간','6분 10초',null)}</div>
+        <div class="db-sec"><div class="db-sec-h"><h2>추이</h2>${rangePicker()}</div><div class="db-chart"><div class="top"><b>플레이</b><span class="db-seg"><button type="button" class="on">플레이</button><button type="button">좋아요</button><button type="button">플레이어</button></span><span class="lg"><span><i></i>이번 기간</span><span><i class="p"></i>이전 기간</span></span></div>${c.svg}</div></div>
+        <div class="db-sec db-two"><div><div class="db-sec-h"><h2>유입 경로</h2></div><div class="db-bars">${[['Play 추천',51],['검색',23],['크리에이터 프로필',15],['외부 링크',11]].map(([n,p])=>`<div class="db-bar"><span>${n}</span><i style="--w:${p}%"></i><b>${p}%</b></div>`).join('')}</div></div><div><div class="db-sec-h"><h2>버전별 플레이</h2></div><div class="db-bars">${m.rel.filter(r=>r.st!=='preview').slice(0,4).map((r,i)=>`<div class="db-bar"><span><code>${r.v}</code></span><i style="--w:${[60,23,12,5][i]}%"></i><b>${[60,23,12,5][i]}%</b></div>`).join('')||'<p class="hint">릴리스가 없습니다.</p>'}</div></div></div>`:''}`,
+      releases:()=>`<table class="db-table"><thead><tr><th>상태</th><th>버전</th><th>소스</th><th>메모</th><th class="num">게시</th><th class="num">소요</th><th></th></tr></thead><tbody>${m.rel.map((r,i)=>relRow(m,r,i)).join('')||`<tr><td colspan="7" style="color:var(--muted);text-align:center;padding:40px">${m.src==='mcp'?'아직 릴리스가 없습니다. Claude, Codex에서 “배포해줘”라고 하면 미리보기 릴리스가 생겨요.':'아직 릴리스가 없습니다. 에디터에서 Launch하면 여기에 쌓여요.'}</td></tr>`}</tbody></table><p class="hint" style="margin-top:10px">${m.src==='mcp'?'MCP로 보낸 버전이 쌓입니다.':'에디터에서 Launch한 버전이 쌓입니다.'} 첫 게시만 심사하고, 그 뒤 업데이트는 자동 검사 후 바로 반영돼요. 문제가 발견되면 비공개로 전환될 수 있어요. 행을 누르면 게시 로그가 열리고, 롤백은 게시가 끝난 버전에만 할 수 있어요.</p>`,
       store:()=>`<div class="db-form">
-        <div class="db-field"><label>제목<small>Explore와 검색에 표시됩니다.</small></label><div><input class="db-in" value="${m.g.t}"></div></div>
+        <div class="db-field"><label>제목<small>Play와 검색에 표시됩니다.</small></label><div><input class="db-in" value="${m.g.t}"></div></div>
+        <div class="db-field"><label>주소<small>verse8.io 뒤에 오는 이름이에요. 먼저 등록한 사람이 가져가요.</small></label><div><div class="db-url-in"><span>verse8.io/</span><input class="db-in" value="${m.id}" data-alias="${m.id}" maxlength="24" autocomplete="off" spellcheck="false"></div><p class="hint ok" data-alias-hint>지금 쓰는 이름이에요</p></div></div>
         <div class="db-field"><label>한 줄 소개</label><div><input class="db-in" value="최후의 던전에서 살아남는 로그라이크 액션 RPG" maxlength="60"><p class="hint">60자 이내</p></div></div>
         <div class="db-field"><label>설명<small>게임 상세 페이지의 소개 탭에 표시됩니다.</small></label><div><textarea class="db-in" rows="5">${GAME.desc[0]}</textarea></div></div>
         <div class="db-field"><label>장르<small>최대 3개</small></label><div class="db-chips">${['액션','RPG','아케이드','퍼즐','슈팅','시뮬레이션','스포츠','전략','캐주얼','호러'].map((g,i)=>`<button type="button" class="chip${[0,1,2].includes(i)?' on':''}" data-chip>${g}</button>`).join('')}</div></div>
-        <div class="db-field"><label>썸네일<small>정사각형 1:1 · 1024px 이상</small></label><div class="db-thumb"><img src="../img/${m.g.i}" alt=""><div><button type="button" class="btn btn-line" data-toast="업로드는 스케치에서 생략했어요">이미지 교체</button><p class="hint">카드와 검색 결과에 쓰입니다. 호버 시 10% 확대되니 가장자리에 여백을 두세요.</p></div></div></div>
-        <div class="db-field"><label>소개 영상<small>선택 · 16:9 · 60초 이내</small></label><div class="db-thumb"><video src="${m.id==='ldw'?GAME.video:''}" muted playsinline ${m.id==='ldw'?'':'poster="../img/'+m.g.i+'"'}></video><div><button type="button" class="btn btn-line" data-toast="업로드는 스케치에서 생략했어요">${m.id==='ldw'?'영상 교체':'영상 추가'}</button><p class="hint">상세 페이지 상단에 자동 재생(무음)됩니다. 없으면 썸네일을 확대해 보여줘요.</p></div></div></div>
-        <div class="db-field"><label>조작법</label><div><input class="db-in" value="이동 WASD · 공격 마우스 왼쪽 · 스킬 1~4 · 일시정지 ESC"></div></div>
-        <div class="db-field"><label>플랫폼 · 인원</label><div class="db-chips">${['PC','모바일','싱글','멀티'].map((g,i)=>`<button type="button" class="chip${i!==3?' on':''}" data-chip>${g}</button>`).join('')}</div></div>
-      </div><div class="db-formfoot"><button type="button" class="btn btn-line" data-toast="변경을 취소했어요">취소</button><button type="button" class="btn btn-black" data-toast="스토어 정보를 저장했어요. 다음 릴리스부터 반영돼요">저장</button></div>`,
-      analytics:()=>`<div class="db-stats">${stat('최근 7일 플레이',dbFmt(m.d7),m.d7p)}${stat('플레이어',dbFmt(Math.round(m.d7*.41)),null)}${stat('평균 플레이 시간','6분 10초',-0.8)}${stat('완료율','23%',1.4)}</div>
-        <div class="db-sec"><div class="db-sec-h"><h2>추이</h2>${rangePicker()}</div><div class="db-chart"><div class="top"><b>플레이</b><span class="db-seg"><button type="button" class="on">플레이</button><button type="button">좋아요</button><button type="button">플레이어</button></span><span class="lg"><span><i></i>이번 기간</span><span><i class="p"></i>이전 기간</span></span></div>${c.svg}</div></div>
-        <div class="db-sec db-two"><div><div class="db-sec-h"><h2>유입 경로</h2></div><div class="db-bars">${[['Explore 추천',51],['검색',23],['크리에이터 프로필',15],['외부 링크',11]].map(([n,p])=>`<div class="db-bar"><span>${n}</span><i style="--w:${p}%"></i><b>${p}%</b></div>`).join('')}</div></div><div><div class="db-sec-h"><h2>버전별 플레이</h2></div><div class="db-bars">${m.rel.slice(0,4).map((r,i)=>`<div class="db-bar"><span><code>${r.v}</code></span><i style="--w:${[60,23,12,5][i]}%"></i><b>${[60,23,12,5][i]}%</b></div>`).join('')||'<p class="hint">릴리스가 없습니다.</p>'}</div></div></div>`,
-      settings:()=>`<div class="db-form">
-        <div class="db-field"><label>공개 범위</label><div class="db-radios" data-radios>${[['live','공개','Explore와 검색에 노출됩니다.'],['private','비공개','나만 플레이할 수 있어요.']].map(([k,t,s])=>`<label class="db-radio${(m.st==='live'?'live':'private')===k?' on':''}"><i></i><div><b>${t}</b><small>${s}</small></div></label>`).join('')}</div></div>
+        <div class="db-field"><label>썸네일<small>정사각형 1:1, 1024px 이상</small></label><div class="db-thumb">${thumb(m)}<div><button type="button" class="btn btn-line" data-toast="업로드는 스케치에서 생략했어요">이미지 교체</button><p class="hint">카드와 검색 결과에 쓰입니다. 호버 시 10% 확대되니 가장자리에 여백을 두세요.</p></div></div></div>
+        <div class="db-field"><label>소개 영상<small>선택, 16:9, 60초 이내</small></label><div class="db-thumb"><video src="${m.id==='ldw'?GAME.video:''}" muted playsinline ${m.id==='ldw'?'':'poster="../img/'+m.g.i+'"'}></video><div><button type="button" class="btn btn-line" data-toast="업로드는 스케치에서 생략했어요">${m.id==='ldw'?'영상 교체':'영상 추가'}</button><p class="hint">상세 페이지 상단에 자동 재생(무음)됩니다. 없으면 썸네일을 확대해 보여줘요.</p></div></div></div>
+        <div class="db-field"><label>조작법</label><div><input class="db-in" value="이동 WASD, 공격 마우스 왼쪽, 스킬 1~4, 일시정지 ESC"></div></div>
+        <div class="db-field"><label>플랫폼과 인원</label><div class="db-chips">${['PC','모바일','싱글','멀티'].map((g,i)=>`<button type="button" class="chip${i!==3?' on':''}" data-chip>${g}</button>`).join('')}</div></div>
+      </div>`,
+      settings:()=>`<h2 class="db-sub">게임 정보</h2>${body.store()}<h2 class="db-sub" style="margin-top:36px">운영</h2>${body.settingsOps()}`,
+      launch:()=>{ const can=!!m.rel.length; const rq=CHREQ[m.id]||new Set(); const url='verse8.io/'+m.id;
+        const card=(k,n,d,rv,foot)=>`<div class="ch-card"><div class="ch-logo">${CHLOGO[k]}</div><div><b>${n}</b><small>${d}${rv?` <span class="rv">(${rv})</span>`:''}</small></div><div class="ch-foot">${foot}</div></div>`;
+        const playFoot=`<span class="db-badge ${can?'live':'private'}">${can?'출시됨':'게시 전'}</span>`;
+        const cards=card('play','Verse8 Play','기본 채널이에요. 첫 게시 심사만 거치면 바로 출시돼요.','',playFoot)+CHANNELS.map(([k,n,d,rv])=>card(k,n,d,rv,rq.has(k)?`<span class="db-badge review">심사 중</span><button type="button" class="btn btn-line" data-chcancel="${m.id}:${k}">취소</button>`:`<span class="db-badge private">신청 전</span><button type="button" class="btn btn-line" data-chreq="${m.id}:${k}"${can?'':' disabled title="먼저 게시해야 신청할 수 있어요"'}>출시 신청</button>`)).join('');
+        return `<div class="db-form">
+        <div class="db-field"><label>퍼블리싱 채널<small>한 번 배포한 게임을 여러 채널에 내요. 채널별 로그인과 광고는 Verse8 shell이 처리해요.</small></label><div><div class="ch-grid">${cards}</div>${can?'':'<p class="hint" style="margin-top:10px">게임을 먼저 게시하면 다른 채널에 신청할 수 있어요.</p>'}</div></div>
+        <div class="db-field"><label>홍보</label><div><div class="db-promo top"><div><b>홍보 지원 요청</b><small>게임 주소로 직접 광고를 돌릴 수도 있고, Verse8에 광고 지원을 요청할 수도 있어요. 요청하면 검토 후 알림으로 알려드려요.</small></div>${PROMO.has(m.id)?'<span class="st">검토 중</span><button type="button" class="btn btn-line" data-promo-cancel="'+m.id+'">요청 취소</button>':'<button type="button" class="btn btn-line" data-promo="'+m.id+'">지원 요청하기</button>'}</div></div></div>
+        </div>`; },
+      monet:()=>{ const e=EARN[m.id], pr=PRODUCTS[m.id]||[]; return `<div class="db-stats">${stat('이번 달 수익',e?'$'+(e[0]+e[1]).toLocaleString():'$0',e?10:null,'지난달 대비')}${stat('광고',e?'$'+e[0].toLocaleString():'$0',null)}${stat('인게임 구매',e?'$'+e[1].toLocaleString():'$0',null)}${stat('환불 / 신고',e?'3 / 0':'0 / 0',null)}</div>
+        <div class="db-form" style="margin-top:24px">
+        <div class="db-field"><label>광고 수익</label><div>${(()=>{ const e=EARN[m.id], on=!!e; return `<div class="db-switch"><div><b>광고 사용</b><small>켜면 Verse8이 광고를 연결하고 수익을 정산해 드려요.</small></div><button type="button" class="tg${on?' on':''}" data-toggle data-ads-master aria-label="광고 사용"></button></div>${e?`<div class="db-warn" data-ads-warn${on?' hidden':''}><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span>이 릴리스에 광고 자리 3개가 있지만 광고가 꺼져 있어요. 광고를 보고 받는 보상도 나가지 않아요.</span><a href="#" data-ads-on>켜기</a></div>`:''}<div class="db-ads${on?'':' off'}"><div class="db-ad one">${adDemo()}<div><b>광고 보고 보상 받기</b><small>플레이어가 광고를 보면 보상을 받아요. 광고를 넣을 자리와 보상은 게임을 만들 때 정해요.</small>${m.src==='mcp'?'<a href="#" data-toast="MCP 연결 게임은 Verse8 SDK의 광고 호출을 넣으면 돼요">SDK로 광고 자리 만들기</a>':'<a href="#" data-toast="에디터에서 ‘상점에 광고 보고 100코인 받기 추가’처럼 프롬프트로 넣을 수 있어요">에디터에서 광고 자리 만들기</a>'}</div></div><div class="db-switch"><div><b>전면 광고 허용</b><small>스테이지 사이에 자동으로 나오는 광고예요. 같은 플레이어에게 3분에 한 번까지만 보여줘요.</small></div><button type="button" class="tg" data-toggle aria-label="전면 광고 허용"></button></div></div>`; })()}</div></div>
+        <div class="db-field"><label>인게임 구매<small>상품은 게임을 만들 때 정해요. 여기서는 판매 상태만 바꿀 수 있어요.</small></label><div>${pr.length?`<table class="db-table"><thead><tr><th>상품</th><th class="num">가격</th><th class="num">판매</th><th class="num">매출</th><th style="width:72px">판매 중</th></tr></thead><tbody>${pr.map(([n,v,c],i)=>`<tr><td style="font-weight:600">${n}</td><td class="num">${v} VX</td><td class="num">${dbFmt(c)}</td><td class="num">$${Math.round(v*c/100).toLocaleString()}</td><td style="text-align:right"><button type="button" class="tg${i===2&&m.id==='food'?'':' on'}" data-toggle aria-label="판매 중"></button></td></tr>`).join('')}</tbody></table><p class="hint" style="margin-top:8px">100 VX = $1 <a href="#" data-toast="에디터에서 상품을 고치고 Launch하면 반영돼요" style="color:#2F6BFF;font-weight:600;margin-left:10px">에디터에서 상품 수정</a></p>`:'<div class="db-slots"><span>아직 상품이 없어요. 게임을 만들 때 ‘보석 100개를 50 VX에 파는 상점 추가’처럼 넣어 보세요.</span></div>'}</div></div>
+        ${pr.length?`<div class="db-field"><label>판매 내역<small>가장 최근 결제부터 보여요.</small></label><div><table class="db-table"><thead><tr><th>일시</th><th>구매자</th><th>상품</th><th class="num">금액</th><th>상태</th></tr></thead><tbody>${SALES.map(r=>`<tr><td class="num" style="text-align:left;color:var(--muted)">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td class="num">${r[3]} VX</td><td><span class="db-badge ${r[4]==='환불'?'failed':'done'}">${r[4]}</span></td></tr>`).join('')}</tbody></table><p class="hint" style="margin-top:8px">환불 요청이나 구매자 신고가 오면 여기에 표시되고, 아이템을 다시 지급하거나 환불할 수 있어요.</p></div></div>`:''}
+      </div><div class="db-formfoot"><button type="button" class="btn btn-black" data-toast="수익화 설정을 저장했어요">저장</button></div>`; },
+      server:()=>{ const v=m.srv; const PR='Verse8 게임서버로 친구와 함께하는 실시간 멀티플레이를 붙여줘'; const promptRow=`<div class="db-switch"><div><b>멀티플레이 붙이기</b><small>프롬프트 한 줄이면 돼요. “${PR}”</small></div><button type="button" class="btn btn-line" data-copy="${PR}" data-copymsg="프롬프트를 복사했어요">프롬프트 복사</button></div>`;
+        if(!v) return `<div class="db-empty"><h2>이 게임은 서버를 쓰지 않아요</h2><p>싱글 플레이 게임이에요. 실시간 멀티플레이나 클라우드 저장이 필요하면 Verse8 게임서버를 붙일 수 있어요.</p></div><div class="db-form" style="margin-top:24px"><div class="db-field"><label>서버 기능 더하기</label><div>${promptRow}</div></div></div>`;
+        const busy=v.st==='busy';
+        return `<div class="db-stats"><div class="db-stat"><small>서버 상태</small><b class="srv ${v.st}"><span class="srv-dot ${v.st} live"></span>${busy?'혼잡':'원활'}</b><em>공용 서버, 사용률 ${v.use}%</em></div><div class="db-stat"><small>동시 접속</small><b id="srvN_ccu">${v.ccu}명</b><em>권장 100명</em></div><div class="db-stat"><small>응답 지연 p95</small><b id="srvN_p95">${v.p95}ms</b><em>최근 1분</em></div><div class="db-stat"><small>열린 방</small><b>${v.rooms}</b><em>메시지 <span id="srvN_mps">${v.mps}</span>/초</em></div></div>
+        ${busy?'<div class="db-warn red"><svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span>공용 서버가 혼잡해 응답이 느려지고 있어요. 게임이 막히지는 않지만, 자주 그렇다면 전용 서버를 요청해 주세요.</span></div>':''}
+        <div class="db-sec db-two" style="gap:16px"><div class="db-chart"><div class="top"><div><b id="srvB_ccu">${v.ccu}</b><small class="cl">동시 접속</small></div><span class="lg"><span><i></i>최근 1시간</span><span><i class="p"></i>권장 100명</span><span class="live"><i></i>실시간</span></span></div><div id="srvCcu"></div></div><div class="db-chart"><div class="top"><div><b id="srvB_p95">${v.p95}ms</b><small class="cl">응답 지연 p95</small></div><span class="lg"><span><i style="background:${busy?'#E5484D':'#8A919C'}"></i>최근 1시간</span><span class="live"><i></i>실시간</span></span></div><div id="srvLat"></div></div></div>
+        <div class="db-form" style="margin-top:24px"><div class="db-field"><label>서버 종류<small>공용 서버는 여러 게임이 함께 써요. 한도를 넘어도 게임이 막히지는 않고 응답만 느려집니다.</small></label><div><div class="db-switch"><div><b>공용 서버</b><small>지금 사용 중</small></div><span class="srv ${v.st}" style="font-size:13px;font-weight:600"><span class="srv-dot ${v.st}"></span>${busy?'혼잡':'원활'}</span></div><div class="db-switch"><div><b>전용 서버</b><small>이 게임만 쓰는 서버예요. 동시 접속이 자주 100명을 넘거나 지연이 길어지면 요청해 주세요.</small></div><button type="button" class="btn btn-line" data-toast="전용 서버 요청을 보냈어요. 검토 후 알림으로 알려드려요">전용 서버 요청</button></div></div></div>
+        <div class="db-field"><label>서버 기능 더하기</label><div>${promptRow}</div></div></div>`; },
+      settingsOps:()=>`<div class="db-form">
+        <div class="db-field"><label>공개 범위</label><div class="db-radios" data-radios>${[['live','공개','Play와 검색에 노출됩니다.'],['private','비공개','나만 플레이할 수 있어요.']].map(([k,t,s])=>`<label class="db-radio${(m.st==='live'?'live':'private')===k?' on':''}"><i></i><div><b>${t}</b><small>${s}</small></div></label>`).join('')}</div></div>
         <div class="db-field"><label>커뮤니티</label><div>${[['댓글 허용','게임 상세에서 댓글을 쓸 수 있어요',true],['릴리스 노트 공개','버전별 변경 내용을 상세 페이지에 보여줘요',true]].map(([t,s,on])=>`<div class="db-switch"><div><b>${t}</b><small>${s}</small></div><button type="button" class="tg${on?' on':''}" data-toggle aria-label="${t}"></button></div>`).join('')}</div></div>
       </div><div class="db-formfoot"><button type="button" class="btn btn-black" data-toast="설정을 저장했어요">저장</button></div>
       <div class="db-danger"><div><b>게임 삭제</b><p>게임과 모든 릴리스, 통계가 삭제됩니다. 되돌릴 수 없어요.</p></div><button type="button" class="btn btn-danger" data-del="${m.id}">게임 삭제</button></div>`
     };
-    return `<a href="#dashboard/games" style="font-size:13px;color:var(--muted);font-weight:600">← 내 게임</a>
-    <div class="db-game-h" style="margin-top:12px"><img src="../img/${m.g.i}" alt=""><div><h1>${m.g.t} ${badge(m.st)}</h1><div class="db-url">verse8.io/${m.id}<button type="button" data-copy="https://verse8.io/${m.id}" aria-label="주소 복사"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5h10"/></svg></button></div></div><div class="acts" style="margin-left:auto;display:flex;gap:8px">${m.rel.filter(r=>r.st==='done').length?`<button type="button" class="btn btn-line" data-rollback="${m.id}">이전 버전으로 롤백</button>`:''}</div></div>
+    return `<a href="${dbGameFrom}" style="font-size:13px;color:var(--muted);font-weight:600">← 뒤로</a>
+    <div class="db-game-h" style="margin-top:12px">${thumb(m)}<div><h1>${m.g.t} ${badge(m.st)}</h1>${m.rel.length?`<div class="db-url">verse8.io/${m.id}<button type="button" data-copy="https://verse8.io/${m.id}" aria-label="주소 복사"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5h10"/></svg></button></div>`:'<div class="db-url">게시하면 주소가 생겨요</div>'}</div><div class="acts" style="margin-left:auto;display:flex;gap:8px">${m.rel.filter(r=>r.st==='done').length?`<button type="button" class="btn btn-line" data-rollback="${m.id}">이전 버전으로 롤백</button>`:''}</div></div>
     <nav class="db-tabs">${T.map(([k,l])=>`<a href="#dashboard/games/${m.id}${k==='overview'?'':'/'+k}" class="${tab===k?'on':''}">${l}</a>`).join('')}</nav>${(body[tab]||body.overview)()}`; }
 };
 const skel=()=>`<div class="sk-head"><div><span class="sk" style="width:220px;height:28px"></span><span class="sk" style="width:320px;height:14px;margin-top:10px"></span></div><span class="sk" style="width:120px;height:36px"></span></div>
@@ -1814,7 +1972,7 @@ const skel=()=>`<div class="sk-head"><div><span class="sk" style="width:220px;he
 <div class="db-sec"><span class="sk" style="width:100px;height:18px;margin-bottom:12px"></span><div class="db-cards">${[0,1,2,3,4,5].map(()=>'<div class="sk-row"><span class="sk av"></span><div style="flex:1"><span class="sk" style="width:60%;height:16px"></span><span class="sk" style="width:80%;height:12px;margin-top:10px"></span></div></div>').join('')}</div></div>`;
 let skT=0;
 const dbRoute=(loading,entering)=>{ if(loading){ clearTimeout(skT); dbMain.innerHTML=skel(); dbSideEl.querySelectorAll('.db-nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')===location.hash.split('/').slice(0,2).join('/')||(a.dataset.db==='home'&&location.hash==='#dashboard'))); skT=setTimeout(()=>dbRoute(false,entering),450); return; }
-  const p=location.hash.replace(/^#dashboard\/?/,'').split('/').filter(Boolean); const sec=p[0]||'home'; const html=sec==='games'&&p[1]?pages.game(p[1],p[2]):(pages[sec]||pages.home)(); dbMain.innerHTML=html; const navKey=sec==='home'||!pages[sec]?'home':sec; dbSideEl.querySelectorAll('.db-nav a').forEach(a=>a.classList.toggle('on',a.dataset.db===navKey)); const seg=document.getElementById('dbThemeSeg'); if(seg) seg.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.theme===themePref)); mountCharts(entering); if(entering) countUp(); };
+  const p=location.hash.replace(/^#dashboard\/?/,'').split('/').filter(Boolean); const sec=p[0]||'home'; const html=sec==='games'&&p[1]?pages.game(p[1],p[2]):(pages[sec]||pages.home)(); dbMain.innerHTML=html; clearInterval(srvTimer); if(document.getElementById('srvCcu')){ const gm=MYG.find(x=>x.id===p[1]); if(gm&&gm.srv) srvStart(gm); } const navKey=sec==='home'||!pages[sec]?'home':sec; dbSideEl.querySelectorAll('.db-nav a').forEach(a=>a.classList.toggle('on',a.dataset.db===navKey)); const seg=document.getElementById('dbThemeSeg'); if(seg) seg.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.theme===themePref)); mountCharts(entering); if(entering) countUp(); };
 // 사이드바 접기
 let dbFold=false; try{ dbFold=localStorage.getItem('v8dbFold')==='1'; }catch(e){}
 const setFold=v=>{ dbFold=v; dashPage.classList.toggle('fold',v);  try{ localStorage.setItem('v8dbFold',v?'1':'0'); }catch(e){} };
@@ -1823,32 +1981,42 @@ setFold(false);
 let themePref='light'; try{ themePref=localStorage.getItem('v8theme')||'light'; }catch(e){}
 const applyTheme=()=>{ if(themePref!=='dark') themePref='light'; const dark=themePref==='dark'; document.body.classList.toggle('dark',dark&&signedIn); document.querySelectorAll('[data-theme]').forEach(b=>b.classList.toggle('on',b.dataset.theme===themePref)); };
 const setTheme=p=>{ themePref=p; try{ localStorage.setItem('v8theme',p); }catch(e){} applyTheme(); };
+document.addEventListener('click',e=>{ const td=e.target.closest('.tab-dash'); if(td&&!signedIn){ e.preventDefault(); afterLogin='#dashboard'; openLogin(); } });
 document.addEventListener('click',e=>{ const b=e.target.closest('[data-theme]'); if(b) setTheme(b.dataset.theme); });
 // 본문 위임 이벤트
 dbMain.addEventListener('click',e=>{
   const t=e.target;
   const demo=t.closest('[data-demo]'); if(demo){ e.preventDefault(); if(demo.dataset.demo==='toggle'){ if(MYG.length){ MYG_BACKUP=MYG.splice(0,MYG.length); } else if(MYG_BACKUP){ MYG.push(...MYG_BACKUP); MYG_BACKUP=null; } location.hash='#dashboard'; dbRoute(true,true); } else if(demo.dataset.demo==='restore'&&MYG_BACKUP){ MYG.push(...MYG_BACKUP); MYG_BACKUP=null; dbRoute(true,true); } return; }
-  const tg=t.closest('.tg'); if(tg){ tg.classList.toggle('on'); return; }
+  const tg=t.closest('.tg'); if(tg){ tg.classList.toggle('on'); if('adsMaster' in tg.dataset){ const on=tg.classList.contains('on'); const fld=tg.closest('.db-field'); const ads=fld.querySelector('.db-ads'); if(ads) ads.classList.toggle('off',!on); const w=fld.querySelector('[data-ads-warn]'); if(w) w.hidden=on; } return; }
   const chip=t.closest('[data-chip]'); if(chip){ chip.classList.toggle('on'); return; }
   const rd=t.closest('.db-radio'); if(rd){ rd.parentElement.querySelectorAll('.db-radio').forEach(x=>x.classList.toggle('on',x===rd)); return; }
   const f=t.closest('[data-f]'); if(f){ f.parentElement.querySelectorAll('[data-f]').forEach(x=>x.classList.toggle('on',x===f)); dbFilter(); return; }
   const seg=t.closest('.db-seg button'); if(seg&&!seg.dataset.theme){ [...seg.parentElement.children].forEach(x=>x.classList.toggle('on',x===seg)); return; }
-  const cp=t.closest('[data-copy]'); if(cp){ try{ navigator.clipboard.writeText(cp.dataset.copy); }catch(x){} toast('주소를 복사했어요'); return; }
+  const cp=t.closest('[data-copy]'); if(cp){ try{ navigator.clipboard.writeText(cp.dataset.copy); }catch(x){} if(!cp.dataset.orig) cp.dataset.orig=cp.innerHTML; cp.innerHTML='<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>'; cp.classList.add('ok'); clearTimeout(cp._t); cp._t=setTimeout(()=>{ cp.innerHTML=cp.dataset.orig; cp.classList.remove('ok'); },1500); toast(cp.dataset.copymsg||'주소를 복사했어요'); return; }
   const ts=t.closest('[data-toast]'); if(ts){ toast(ts.dataset.toast); return; }
   if(t.closest('[data-create]')){ openCreate(); return; }
-  const more=t.closest('[data-menu]'); if(more){ e.preventDefault(); const row=more.closest('tr'); const m=MYG.find(x=>row.dataset.log.startsWith(x.id)); const r=m.rel[+row.dataset.log.split('-').pop()]; openModal(`<h2>${m.g.t} <code style="font-size:14px">${r.v}</code></h2><p>${r.m}</p><div style="display:grid;gap:6px">${[['로그 보기','log'],r.st==='done'?['이 버전으로 롤백','rb']:null,r.st==='failed'?[m.src==='mcp'?'MCP에서 다시 보내 주세요':'에디터에서 다시 Launch해 주세요','hint']:null,['삭제','del']].filter(Boolean).map(([l,k])=>`<button type="button" class="btn ${k==='del'?'btn-danger':'btn-line'}" data-act="${k}" data-game="${m.id}" data-rel="${r.v}" style="justify-content:flex-start">${l}</button>`).join('')}</div><div class="acts"><button type="button" class="btn btn-line" data-close>닫기</button></div>`); return; }
-  const gopt=t.closest('[data-gopt]'); if(gopt){ e.preventDefault(); const m=MYG.find(x=>x.id===gopt.dataset.gopt); openModal(`<h2>${m.g.t}</h2><div style="display:grid;gap:6px">${[['에디터에서 열기','#'],['릴리스','#dashboard/games/'+m.id+'/releases'],['스토어 정보','#dashboard/games/'+m.id+'/store'],['설정','#dashboard/games/'+m.id+'/settings']].map(([l,h])=>`<a class="btn btn-line" href="${h}" data-close style="justify-content:flex-start">${l}</a>`).join('')}<button type="button" class="btn btn-danger" data-del="${m.id}" style="justify-content:flex-start">게임 삭제</button></div><div class="acts"><button type="button" class="btn btn-line" data-close>닫기</button></div>`); return; }
+  const more=t.closest('[data-menu]'); if(more){ e.preventDefault(); const row=more.closest('tr'); const m=MYG.find(x=>row.dataset.log.startsWith(x.id)); const r=m.rel[+row.dataset.log.split('-').pop()]; openModal(`<h2>${m.g.t} <code style="font-size:14px">${r.v}</code></h2><p>${r.m}</p><div style="display:grid;gap:6px">${[['로그 보기','log'],r.st==='done'?['이 버전으로 롤백','rb']:null,r.st==='preview'?['미리보기 열기','pv']:null,r.st==='failed'?[m.src==='mcp'?'MCP에서 다시 보내 주세요':'에디터에서 다시 Launch해 주세요','hint']:null,['삭제','del']].filter(Boolean).map(([l,k])=>`<button type="button" class="btn ${k==='del'?'btn-danger':'btn-line'}" data-act="${k}" data-game="${m.id}" data-rel="${r.v}" style="justify-content:flex-start">${l}</button>`).join('')}</div><div class="acts"><button type="button" class="btn btn-line" data-close>닫기</button></div>`); return; }
+  const gopt=t.closest('[data-gopt]'); if(gopt){ e.preventDefault(); const m=MYG.find(x=>x.id===gopt.dataset.gopt); openModal(`<h2>${m.g.t}</h2><div style="display:grid;gap:6px">${[['에디터에서 열기','#'],['릴리스','#dashboard/games/'+m.id+'/releases'],['설정','#dashboard/games/'+m.id+'/settings'],['설정','#dashboard/games/'+m.id+'/settings']].map(([l,h])=>`<a class="btn btn-line" href="${h}" data-close style="justify-content:flex-start">${l}</a>`).join('')}<button type="button" class="btn btn-danger" data-del="${m.id}" style="justify-content:flex-start">게임 삭제</button></div><div class="acts"><button type="button" class="btn btn-line" data-close>닫기</button></div>`); return; }
   const grow=t.closest('tr.grow'); if(grow&&!t.closest('a,button')){ location.hash=grow.dataset.go; return; }
   const rel=t.closest('tr.rel'); if(rel){ const log=document.getElementById('log-'+rel.dataset.log); log.classList.toggle('on'); return; }
   const rb=t.closest('[data-rollback]'); if(rb){ const m=MYG.find(x=>x.id===rb.dataset.rollback); const prev=m.rel.find(r=>r.st==='done'); openModal(`<h2>이전 버전으로 롤백</h2><p><b>${m.g.t}</b>를 <code>${prev.v}</code>(${prev.m})로 되돌립니다. 현재 공개 버전 <code>${m.rel.find(r=>r.st==='live').v}</code>은 릴리스 목록에 남고, 플레이어는 즉시 이전 버전을 받습니다.</p><div class="acts"><button type="button" class="btn btn-line" data-close>취소</button><button type="button" class="btn btn-black" data-act="rb" data-game="${m.id}" data-rel="${prev.v}">롤백</button></div>`); return; }
-  const ag=t.closest('[data-allgames]'); if(ag){ e.preventDefault(); const list=[['ldw',820],['food',610],['coldSteel',310],['drill',100]].map(([id,v])=>({m:MYG.find(x=>x.id===id),v})).filter(x=>x.m); openModal(`<h2>게임별 수익</h2><p>이번 달 수익 $1,840 기준입니다. 게임이 많아지면 여기서 검색해 찾으세요.</p><label class="db-search" style="width:100%;margin-bottom:12px"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input placeholder="게임 검색" oninput="[...this.closest('.db-modal-p').querySelectorAll('tbody tr')].forEach(r=>r.hidden=!r.firstChild.textContent.toLowerCase().includes(this.value.toLowerCase()))"></label><table class="db-table"><thead><tr><th>게임</th><th class="num">수익</th><th class="num">비중</th></tr></thead><tbody>${list.map(({m,v})=>`<tr><td style="font-weight:600">${m.g.t}</td><td class="num">$${v.toLocaleString()}</td><td class="num">${Math.round(v/1840*100)}%</td></tr>`).join('')}</tbody></table><div class="acts"><button type="button" class="btn btn-line" data-close>닫기</button></div>`); return; }
+
   const nr=t.closest('[data-newrel]'); if(nr){ const m=MYG.find(x=>x.id===nr.dataset.newrel); openModal(`<h2>새 릴리스</h2><p><b>${m.g.t}</b>의 현재 에디터 상태를 게시합니다. AI 심사를 거친 뒤 공개돼요.</p><p class="hint" style="margin:0 0 6px;font-size:12px">버전</p><input class="db-in" id="nrV" value="${bump(m.ver)}"><p class="hint" style="margin:12px 0 6px;font-size:12px">메모 (릴리스 노트에 표시)</p><textarea class="db-in" id="nrM" placeholder="무엇이 바뀌었나요?"></textarea><div class="acts"><button type="button" class="btn btn-line" data-close>취소</button><button type="button" class="btn btn-grad" data-act="pub" data-game="${m.id}"><span>게시 요청</span></button></div>`); setTimeout(()=>document.getElementById('nrM').focus(),50); return; }
+  const ao=t.closest('[data-ads-on]'); if(ao){ e.preventDefault(); ao.closest('.db-field').querySelector('[data-ads-master]').click(); return; }
+  const pr=t.closest('[data-promo]'); if(pr){ const m=MYG.find(x=>x.id===pr.dataset.promo); openModal(`<h2>홍보 지원 요청</h2><p><b>${m.g.t}</b>를 Verse8 광고 채널로 홍보해 드려요. 원하는 채널을 고르고 보내 주세요. 검토 후 알림으로 결과를 알려드려요.</p><div class="pchips">${PCH.map(([c,ic],i)=>`<button type="button" class="pchip${i<3?' on':''}" data-pchip>${ic}${c}</button>`).join('')}</div><textarea class="db-in" rows="3" placeholder="강조하고 싶은 점이나 타깃이 있으면 적어 주세요 (선택)"></textarea><div class="acts"><button type="button" class="btn btn-line" data-close>취소</button><button type="button" class="btn btn-black" data-promo-send="${m.id}">요청 보내기</button></div>`); return; }
+  const cr=t.closest('[data-chreq]'); if(cr&&!cr.disabled){ const [gid,k]=cr.dataset.chreq.split(':'); const m=MYG.find(x=>x.id===gid); const c=CHANNELS.find(x=>x[0]===k); openModal(`<h2>${c[1]} 출시 신청</h2><p><b>${m.g.t}</b>를 ${c[1]}에 올려요. 채널 심사는 ${c[3].replace('심사 ','')} 걸리고, 결과는 알림으로 알려드려요.</p><div class="db-req">${[['운영 배포가 있어요',true],['썸네일과 한 줄 소개가 있어요',true],['콘텐츠 정책 자동 검사를 통과했어요',true],['채널 로그인과 광고는 Verse8 shell이 처리해요',true]].map(([t,ok])=>`<div><i>✓</i>${t}</div>`).join('')}</div><p class="hint" style="margin-top:10px">Claude, Codex에서 “${c[1]}에 출시해줘”라고 해도 같은 신청이 들어가요.</p><div class="acts"><button type="button" class="btn btn-line" data-close>취소</button><button type="button" class="btn btn-black" data-chsend="${gid}:${k}">신청 보내기</button></div>`); return; }
+  const ccl=t.closest('[data-chcancel]'); if(ccl){ const [gid,k]=ccl.dataset.chcancel.split(':'); (CHREQ[gid]||new Set()).delete(k); toast('출시 신청을 취소했어요'); dbRoute(false,false); return; }
+  const pcl=t.closest('[data-promo-cancel]'); if(pcl){ PROMO.delete(pcl.dataset.promoCancel); toast('홍보 지원 요청을 취소했어요'); dbRoute(false,false); return; }
   const del=t.closest('[data-del]'); if(del){ const m=MYG.find(x=>x.id===del.dataset.del); openModal(`<h2>게임 삭제</h2><p><b>${m.g.t}</b>와 릴리스 ${m.rel.length}개, 누적 플레이 ${dbFmt(m.g.p)}회의 통계가 모두 삭제됩니다. 되돌릴 수 없어요.</p><p class="hint" style="margin:0 0 6px;font-size:12px">확인을 위해 게임 이름 <b>${m.g.t}</b>을 입력하세요</p><input class="db-in" id="delIn" autocomplete="off"><div class="acts"><button type="button" class="btn btn-line" data-close>취소</button><button type="button" class="btn btn-danger" id="delGo" data-act="del-game" data-game="${m.id}" disabled>삭제</button></div>`); const inp=document.getElementById('delIn'); inp.addEventListener('input',()=>document.getElementById('delGo').disabled=inp.value.trim()!==m.g.t); inp.focus(); return; }
 });
 const bump=v=>{ const m=v.match(/v(\d+)\.(\d+)\.(\d+)/); return m?`v${m[1]}.${m[2]}.${+m[3]+1}`:'v1.0.0'; };
 dbModalBody.addEventListener('click',e=>{
+  const pc=e.target.closest('[data-pchip]'); if(pc){ pc.classList.toggle('on'); return; }
+  const cs=e.target.closest('[data-chsend]'); if(cs){ const [gid,k]=cs.dataset.chsend.split(':'); (CHREQ[gid]=CHREQ[gid]||new Set()).add(k); closeModal(); toast('출시 신청을 보냈어요. 채널 심사 뒤 알림으로 알려드려요'); dbRoute(false,false); return; }
+  const ps=e.target.closest('[data-promo-send]'); if(ps){ PROMO.add(ps.dataset.promoSend); closeModal(); toast('홍보 지원 요청을 보냈어요. 검토 후 알림으로 알려드려요'); dbRoute(false,false); return; }
   const a=e.target.closest('[data-act]'); if(!a) return; const m=MYG.find(x=>x.id===a.dataset.game); const act=a.dataset.act;
-  if(act==='hint'){ closeModal(); toast(m.src==='mcp'?'Claude · GPT에서 MCP로 다시 보내면 새 릴리스로 올라와요':'에디터에서 수정 후 Launch하면 새 릴리스로 올라와요'); return; }
+  if(act==='pv'){ closeModal(); toast('미리보기 주소는 Claude, Codex 응답에 있어요. 게시하려면 “게시해줘”라고 말하면 돼요'); return; }
+  if(act==='hint'){ closeModal(); toast(m.src==='mcp'?'Claude, GPT에서 MCP로 다시 보내면 새 릴리스로 올라와요':'에디터에서 수정 후 Launch하면 새 릴리스로 올라와요'); return; }
   if(act==='log'){ closeModal(); const i=m.rel.findIndex(r=>r.v===a.dataset.rel); const log=document.getElementById(`log-${m.id}-${i}`); if(log){ log.classList.add('on'); log.scrollIntoView({block:'center',behavior:'smooth'}); } return; }
   if(act==='rb'){ const cur=m.rel.find(r=>r.st==='live'); const prev=m.rel.find(r=>r.v===a.dataset.rel); if(cur) cur.st='done'; prev.st='live'; m.ver=prev.v; closeModal(); dbRoute(); toast(`${prev.v}로 롤백했어요`); return; }
   if(act==='retry'){ const r=m.rel.find(x=>x.v===a.dataset.rel); r.st='building'; closeModal(); dbRoute(); setTimeout(()=>{ r.st='review'; dbRoute(); toast('심사 요청을 보냈어요'); },2200); return; }
@@ -1856,11 +2024,11 @@ dbModalBody.addEventListener('click',e=>{
   if(act==='pub'){ const v=document.getElementById('nrV').value.trim()||bump(m.ver), note=document.getElementById('nrM').value.trim()||'변경 메모 없음'; const r={v,st:'building',src:'agent',m:note,t:NOW.toISOString(),s:0}; m.rel.unshift(r); m.ver=v; if(m.st==='draft'||m.st==='private') m.st='review'; closeModal(); location.hash=`#dashboard/games/${m.id}/releases`; dbRoute(); const t0=Date.now(); const iv=setInterval(()=>{ r.s=Math.round((Date.now()-t0)/1000*20); if(r.s>=58){ clearInterval(iv); r.st='review'; r.s=58; dbRoute(); toast('심사 요청을 보냈어요. 보통 24시간 안에 결과가 와요'); } },400); return; }
   if(act==='del-game'){ const i=MYG.indexOf(m); MYG.splice(i,1); closeModal(); location.hash='#dashboard/games'; toast(`${m.g.t}를 삭제했어요`); return; }
 });
-const dbFilter=()=>{ const q=(document.getElementById('dbQ')||{}).value||'', f=(document.querySelector('[data-f].on')||{}).dataset?.f||'all'; const grid=document.getElementById('dbGameGrid'); if(!grid) return; grid.innerHTML=MYG.filter(m=>(f==='all'||m.st===f)&&m.g.t.toLowerCase().includes(q.toLowerCase())).map(gameRow).join('')||'<tr><td colspan="5" class="hint" style="text-align:center;padding:40px 0">조건에 맞는 게임이 없어요.</td></tr>'; };
+const dbFilter=()=>{ const q=(document.getElementById('dbQ')||{}).value||'', f=(document.querySelector('[data-f].on')||{}).dataset?.f||'all'; const grid=document.getElementById('dbGameGrid'); if(!grid) return; grid.innerHTML=MYG.filter(m=>(f==='all'||m.st===f)&&m.g.t.toLowerCase().includes(q.toLowerCase())).map(gameRow).join('')||'<tr><td colspan="6" class="hint" style="text-align:center;padding:40px 0">조건에 맞는 게임이 없어요.</td></tr>'; };
 dbMain.addEventListener('input',e=>{ if(e.target.id==='dbQ') dbFilter(); });
 dbMain.addEventListener('click',e=>{ if(e.target.id==='dbSignOut'){ setSignedIn(false); location.hash=''; toast('로그아웃했어요'); } });
 // ===== 공개 프로필 미리보기 (#profile) =====
-const PF={following:24,followers:76400,bio:"프롬프트 한 줄로 만드는 로그라이크 · 캐주얼 게임. 던전과 과일 자르기를 좋아합니다. 매주 금요일 업데이트.",likes:['survive','vampire','badPets','pixel','zan','mapleMonsters','neon2048','connect'],plays:['ldw','food','vampire','survive','coldSteel','oneTo50','pixel','drill','badPets']};
+const PF={following:24,followers:76400,bio:"프롬프트 한 줄로 만드는 로그라이크, 캐주얼 게임. 던전과 과일 자르기를 좋아합니다. 매주 금요일 업데이트.",likes:['survive','vampire','badPets','pixel','zan','mapleMonsters','neon2048','connect'],plays:['ldw','food','vampire','survive','coldSteel','oneTo50','pixel','drill','badPets']};
 const profilePage=document.getElementById('profilePage');
 const renderProfile=tab=>{ tab=tab||'creations'; const pub=MYG.filter(m=>m.st==='live'); const T=[['creations','제작',pub.length],['likes','좋아요',PF.likes.length],['plays','플레이',PF.plays.length]];
   const grid=keys=>`<div class="grid">${keys.map(k=>appCard(G[k])).join('')}</div>`;
@@ -1873,7 +2041,7 @@ profilePage.addEventListener('click',e=>{ const t=e.target.closest('[data-toast]
 const gnbAva=document.getElementById('gnbAva'); let avaMenu=null;
 const closeAva=()=>{ if(avaMenu){ avaMenu.remove(); avaMenu=null; gnbAva.setAttribute('aria-expanded','false'); } };
 const openAva=()=>{ closeAva(); avaMenu=document.createElement('div'); avaMenu.className='ava-menu'; avaMenu.innerHTML=`<a class="who" href="#profile"><img src="../img/avatar.jpg" alt=""><div><b>${ME.name}</b><small>팔로워 7.6만명</small></div></a><hr>
-    <a href="#dashboard"><svg class="li" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1.5"/><rect width="7" height="7" x="14" y="3" rx="1.5"/><rect width="7" height="7" x="14" y="14" rx="1.5"/><rect width="7" height="7" x="3" y="14" rx="1.5"/></svg>My Studio</a>
+    <a href="#dashboard"><svg class="li" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>My Studio</a>
   <a href="#dashboard/credits"><svg class="li" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2.5"/><line x1="2" x2="22" y1="10" y2="10"/></svg>크레딧<span class="r">$${ME.credits.toFixed(2)}</span></a><hr>
   <div class="theme"><span>테마</span><span class="db-seg">${[['light','라이트'],['dark','다크']].map(([k,l])=>`<button type="button" data-theme="${k}" class="${themePref===k?'on':''}">${l}</button>`).join('')}</span></div><hr>
   <a href="#dashboard/settings"><svg class="li" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>설정</a>
@@ -1886,7 +2054,7 @@ const NOTIS=EVENTS;
 let gnbPop=null; const closePop=()=>{ if(gnbPop){ gnbPop.remove(); gnbPop=null; } };
 const openPop=(kind,anchor)=>{ closePop(); gnbPop=document.createElement('div'); gnbPop.className='gnb-pop '+kind;
   gnbPop.innerHTML= kind==='bell' ? `<div class="ph"><b>알림</b><button type="button" class="lnk" data-readall>모두 읽음</button></div>${NOTIS.map(n=>`<div class="row${n.n?' new':''}"><span class="ico">${dbIco[n.ic]}</span><div class="t">${n.t}<small>${ago(n.w)}</small></div></div>`).join('')}<div class="pf"><a href="#dashboard/settings">알림 설정</a></div>`
-  : `<div class="ph"><b>도움말</b></div>${[['크리에이터 가이드','만들기부터 수익화까지 한눈에'],['MCP 연결 문서','Claude · GPT로 만든 게임 연결하기'],['심사 정책','AI 심사 기준과 반려 사유'],['정산 안내','정산 주기, 세금, 계좌'],['문의하기','Verse8 팀에게 직접 묻기']].map(([t,d])=>`<a href="#" class="row" data-toast="문서로 이동합니다"><div class="t">${t}<small>${d}</small></div></a>`).join('')}`;
+  : `<div class="ph"><b>도움말</b></div>${[['크리에이터 가이드','만들기부터 수익화까지 한눈에'],['MCP 연결 문서','Claude, GPT로 만든 게임 연결하기'],['심사 정책','AI 심사 기준과 반려 사유'],['정산 안내','정산 주기, 세금, 계좌'],['문의하기','Verse8 팀에게 직접 묻기']].map(([t,d])=>`<a href="#" class="row" data-toast="문서로 이동합니다"><div class="t">${t}<small>${d}</small></div></a>`).join('')}`;
   anchor.parentElement.appendChild(gnbPop); };
 document.querySelector('.gnb-bell').addEventListener('click',e=>{ e.stopPropagation(); closeAva(); gnbPop&&gnbPop.classList.contains('bell')?closePop():openPop('bell',e.currentTarget); });
 document.querySelector('.gnb-help').addEventListener('click',e=>{ e.stopPropagation(); closeAva(); gnbPop&&gnbPop.classList.contains('help')?closePop():openPop('help',e.currentTarget); });
@@ -1957,7 +2125,7 @@ document.addEventListener('keydown',e=>{ if(!document.body.classList.contains('v
 
 // 뷰 전환 (#earn은 대시보드로 안내)
 let prevHash=location.hash, firstView=true;
-const setView=()=>{ if(location.hash==='#earn'){ history.replaceState(null,'',location.pathname); if(signedIn){ location.hash='#dashboard'; } else { afterLogin='#dashboard'; openLogin('게임을 올리고 수익을 내려면 로그인이 필요해요.'); setView(); } return; } const h=location.hash, earn=false, play=h==='#game-play', game=h==='#game'||play, dash=h.startsWith('#dashboard'), prof=h.startsWith('#profile'); document.body.classList.toggle('view-earn',earn); document.body.classList.toggle('view-game',game); document.body.classList.toggle('view-dash',dash); document.body.classList.toggle('view-profile',prof); if(prof){ if(!signedIn) setSignedIn(true); renderProfile(h.split('/')[1]); if(!spanel.hidden) closeSearchAll(); if(!prevHash.startsWith('#profile')) window.scrollTo(0,0); } if(dash){ if(!signedIn) setSignedIn(true); dbRoute(prevHash!==h||firstView, true); if(!spanel.hidden) closeSearchAll(); if(!prevHash.startsWith('#dashboard')||prevHash.split('/').length!==h.split('/').length) window.scrollTo(0,0); } applyTheme(); if(game){ if(!prevHash.startsWith('#game')) gameFrom=prevHash.startsWith('#dashboard')||prevHash.startsWith('#profile')?prevHash:''; if(!gamePage.classList.contains('gp-'+gv) || prevHash!=='#game'&&prevHash!=='#game-play') renderGame(false); } else gamePage.querySelectorAll('video').forEach(v=>v.pause()); if(play) enterPlay(prevHash); else if(document.body.classList.contains('view-play')) exitPlay(); if((earn||game)&&!play){ if(!spanel.hidden) closeSearchAll(); window.scrollTo(0,0); } prevHash=h; firstView=false; window.dispatchEvent(new Event('scroll')); };
+const setView=()=>{ if(location.hash==='#earn'){ history.replaceState(null,'',location.pathname); if(signedIn){ location.hash='#dashboard'; } else { afterLogin='#dashboard'; openLogin('게임을 올리고 수익을 내려면 로그인이 필요해요.'); setView(); } return; } const h=location.hash, earn=false, play=h==='#game-play', game=h==='#game'||play, dash=h.startsWith('#dashboard'), prof=h.startsWith('#profile'); document.body.classList.toggle('view-earn',earn); document.body.classList.toggle('view-game',game); document.body.classList.toggle('view-dash',dash); document.body.classList.toggle('view-profile',prof); if(prof){ if(!signedIn) setSignedIn(true); renderProfile(h.split('/')[1]); if(!spanel.hidden) closeSearchAll(); if(!prevHash.startsWith('#profile')) window.scrollTo(0,0); } if(dash){ if(!signedIn) setSignedIn(true); if(h.startsWith('#dashboard/games/')&&!prevHash.startsWith('#dashboard/games/')) dbGameFrom=prevHash.startsWith('#dashboard')&&!firstView?prevHash:'#dashboard/games'; dbRoute(prevHash!==h||firstView, true); if(!spanel.hidden) closeSearchAll(); if(!prevHash.startsWith('#dashboard')||prevHash.split('/').length!==h.split('/').length) window.scrollTo(0,0); } applyTheme(); if(game){ if(!prevHash.startsWith('#game')) gameFrom=prevHash.startsWith('#dashboard')||prevHash.startsWith('#profile')?prevHash:''; if(!gamePage.classList.contains('gp-'+gv) || prevHash!=='#game'&&prevHash!=='#game-play') renderGame(false); } else gamePage.querySelectorAll('video').forEach(v=>v.pause()); if(play) enterPlay(prevHash); else if(document.body.classList.contains('view-play')) exitPlay(); if((earn||game)&&!play){ if(!spanel.hidden) closeSearchAll(); window.scrollTo(0,0); } prevHash=h; firstView=false; window.dispatchEvent(new Event('scroll')); };
 window.addEventListener('hashchange',setView); setView();
 
 // 변경 노트 토글
