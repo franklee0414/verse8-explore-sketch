@@ -1438,11 +1438,15 @@ body.dark .cr-menu .prem{background:#2A2450}
 .cr-tools-add{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px 0 8px;border-radius:8px;font-family:var(--display);font-weight:700;font-size:13px;color:var(--fg)}
 .cr-tools-add:hover{background:var(--surface)}
 .cr-tools-add svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
-.mcp-modal h2{display:flex;align-items:center;gap:10px}
-.mcp-modal .mcp-ic{width:36px;height:36px;border-radius:10px;background:var(--accent-soft);color:#2F6BFF;display:grid;place-items:center;flex:none}
-.mcp-modal .mcp-ic svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
 .mcp-modal .mcp-sep{height:1px;background:var(--line);margin-top:20px}
-.mcp-modal select.db-in{appearance:none;-webkit-appearance:none;padding-right:38px;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A919C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px}
+.mcp-modal .mcp-dd .select{display:flex;width:100%;justify-content:space-between;font-size:14px}
+.mcp-modal .mcp-dd .menu{left:0;right:0;min-width:0}
+.mcp-modal .mcp-dd .menu li{font-size:14px;padding:9px 12px}
+body.dark .db-modal-p:has(.mcp-modal){background:var(--surface-2);box-shadow:0 0 0 1px #2E343E,0 24px 64px rgba(0,0,0,.6)}
+body.dark .mcp-modal .db-in,body.dark .mcp-modal .select,body.dark .mcp-modal .btn-line,body.dark .mcp-modal .menu{background:#2A2F39;border-color:#363C48}
+body.dark .mcp-modal .db-in:focus{border-color:#4A5261}
+body.dark .mcp-modal .select:hover,body.dark .mcp-modal .select[aria-expanded="true"],body.dark .mcp-modal .btn-line:hover,body.dark .mcp-modal .menu li:hover,body.dark .mcp-modal .menu li.on,body.dark .mcp-modal .mcp-hx:hover{background:#333945}
+body.dark .mcp-modal .mcp-sep{background:#363C48}
 .mcp-modal .hint{line-height:1.55;word-break:keep-all}
 .mcp-modal .mcp-hh{display:flex;align-items:center;justify-content:space-between;margin:18px 0 10px}
 .mcp-modal .mcp-hh b{font-family:var(--display);font-size:13px;font-weight:700}
@@ -2040,6 +2044,8 @@ body.dr-open{overflow:hidden}
 /* 디자인 점검(11/18) 반영: 그리드 열 · 고아 카드 · 모달 높이 · Mobile Top 여백 · 히어로 2장 */
 .hero-sec{padding-top:60px}
 .db-modal-p:has(.wl-modal){max-height:calc(100vh - 48px);overflow:auto}
+/* MCP Tools 추가 팝업: 인증 드롭다운이 팝업 밖으로 펼쳐질 수 있게(안쪽 스크롤 None). 좁은 화면은 위 규칙대로 스크롤 */
+@media (min-width:600px){.db-modal-p:has(.mcp-modal){max-height:none;overflow:visible}}
 #profilePage .wrap{max-width:1000px}
 @media (min-width:700px) and (max-width:1023px){.grid>.app:nth-child(21):last-child{display:none}}
 @media (min-width:1024px) and (max-width:1100px){.feat{width:470px}}
@@ -3669,11 +3675,11 @@ const CR_MCP_AUTH=[['none','No authentication','No Authorization header or Verse
 const crMcpIco='<svg viewBox="0 0 24 24"><path d="M9 2v6M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg>';
 const crMcpEsc=v=>v.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const crMcpHdrRow=()=>`<div class="mcp-hrow"><input class="db-in" data-mcp-hn placeholder="X-API-Key" autocomplete="off" spellcheck="false"><input class="db-in" data-mcp-hv type="password" placeholder="Header value" autocomplete="off" spellcheck="false"><button type="button" class="mcp-hx" data-mcp-delh aria-label="Remove header"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>`;
-const openMcpTool=()=>{ openModal(`<div class="wl-modal mcp-modal"><button type="button" class="pl-close lg-close" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><h2><span class="mcp-ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>Add Custom MCP Tool</h2>
+const openMcpTool=()=>{ openModal(`<div class="wl-modal mcp-modal"><button type="button" class="pl-close lg-close" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><h2>Add Custom MCP Tool</h2>
   <div class="wl-lbl">MCP Tool Name</div><input id="mcpName" class="db-in" placeholder="e.g. agent8" autocomplete="off" spellcheck="false" maxlength="40">
   <div class="wl-lbl">MCP Tool URL</div><input id="mcpUrl" class="db-in" placeholder="https://mcp.example.com/mcp" autocomplete="off" spellcheck="false" inputmode="url">
   <div class="mcp-sep"></div>
-  <div class="wl-lbl">Authentication</div><select id="mcpAuth" class="db-in">${CR_MCP_AUTH.map(a=>`<option value="${a[0]}">${a[1]}</option>`).join('')}</select><p class="hint" id="mcpHint">${CR_MCP_AUTH[0][2]}</p>
+  <div class="wl-lbl">Authentication</div><div class="dd mcp-dd"><button type="button" class="select" id="mcpAuthBtn" aria-haspopup="listbox" aria-expanded="false"><b id="mcpAuthLabel">${CR_MCP_AUTH[0][1]}</b><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button><ul class="menu" id="mcpAuthMenu" role="listbox" hidden>${CR_MCP_AUTH.map((a,i)=>`<li role="option" data-v="${a[0]}" aria-selected="${!i}"${i?'':' class="on"'}>${a[1]}</li>`).join('')}</ul><input type="hidden" id="mcpAuth" value="none"></div><p class="hint" id="mcpHint">${CR_MCP_AUTH[0][2]}</p>
   <div id="mcpBearer" hidden><div class="wl-lbl">Bearer token</div><input id="mcpToken" class="db-in" type="password" autocomplete="off" spellcheck="false"><p class="hint">Kept in this tab’s memory and sent through your runtime container to this MCP. Re-enter after a refresh or account change.</p></div>
   <div id="mcpHdrs" hidden><div class="mcp-hh"><b>Request headers</b><button type="button" data-mcp-addh>+ Add header</button></div><div class="mcp-hl"><span>Name</span><span>Value</span><span></span></div><div id="mcpHdrList">${crMcpHdrRow()}</div><p class="hint">Values stay in this tab’s memory and are sent through your runtime container to this MCP. Re-enter after a refresh or account change.</p></div>
   <div class="acts"><button type="button" class="btn btn-line" data-close>Cancel</button><button type="button" class="btn btn-blue" data-mcp-ok disabled>Add Tool</button></div></div>`); document.getElementById('mcpName').focus(); };
@@ -3682,6 +3688,10 @@ const crMcpSync=()=>{ const g=id=>document.getElementById(id), name=g('mcpName')
   const okAuth=auth==='bearer'?!!g('mcpToken').value.trim():auth==='headers'?[...g('mcpHdrList').children].some(r=>r.querySelector('[data-mcp-hn]').value.trim()&&r.querySelector('[data-mcp-hv]').value.trim()):true;
   document.querySelector('[data-mcp-ok]').disabled=!(name&&okUrl&&okAuth); };
 dbModalBody.addEventListener('click',e=>{ const list=document.getElementById('mcpHdrList'); if(!list) return;
+  const am=document.getElementById('mcpAuthMenu'), ab=document.getElementById('mcpAuthBtn'), aset=o=>{ am.hidden=!o; ab.setAttribute('aria-expanded',String(o)); };
+  if(e.target.closest('#mcpAuthBtn')){ aset(am.hidden); return; }
+  const li=e.target.closest('#mcpAuthMenu li'); if(li){ [...am.children].forEach(x=>{ x.classList.toggle('on',x===li); x.setAttribute('aria-selected',x===li); }); document.getElementById('mcpAuth').value=li.dataset.v; document.getElementById('mcpAuthLabel').textContent=li.textContent; aset(false); crMcpSync(); return; }
+  if(!am.hidden) aset(false);
   if(e.target.closest('[data-mcp-addh]')){ list.insertAdjacentHTML('beforeend',crMcpHdrRow()); list.lastElementChild.querySelector('input').focus(); crMcpSync(); return; }
   const del=e.target.closest('[data-mcp-delh]'); if(del){ const row=del.closest('.mcp-hrow'); if(list.children.length>1) row.remove(); else row.querySelectorAll('input').forEach(i=>{ i.value=''; }); crMcpSync(); } });
 const crToolsChip=()=>{ const chip=document.querySelector('#crMain [data-crtools]'); if(chip){ chip.classList.toggle('on',crTools.size>0); chip.innerHTML='<svg class="plus" viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15"/></svg>'+(crTools.size?`<span class="cnt">${crTools.size}</span>`:''); } };
