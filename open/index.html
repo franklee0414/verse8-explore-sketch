@@ -1433,6 +1433,27 @@ body.dark .cr-menu .prem{background:#2A2450}
 .cr-tool small{font-size:12px;color:var(--muted);line-height:1.45}
 .cr-tool em{font-style:normal;font-size:12px;font-weight:600;color:var(--muted);margin-top:4px}
 .cr-tool.on em{color:#2F6BFF}
+/* 사용자 MCP 도구 추가(11/27): 도구 패널 아래 버튼 + 팝업 */
+.cr-tools-f{display:flex;margin-top:10px}
+.cr-tools-add{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px 0 8px;border-radius:8px;font-family:var(--display);font-weight:700;font-size:13px;color:var(--fg)}
+.cr-tools-add:hover{background:var(--surface)}
+.cr-tools-add svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.mcp-modal h2{display:flex;align-items:center;gap:10px}
+.mcp-modal .mcp-ic{width:36px;height:36px;border-radius:10px;background:var(--accent-soft);color:#2F6BFF;display:grid;place-items:center;flex:none}
+.mcp-modal .mcp-ic svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.mcp-modal .mcp-sep{height:1px;background:var(--line);margin-top:20px}
+.mcp-modal select.db-in{appearance:none;-webkit-appearance:none;padding-right:38px;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A919C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px}
+.mcp-modal .hint{line-height:1.55;word-break:keep-all}
+.mcp-modal .mcp-hh{display:flex;align-items:center;justify-content:space-between;margin:18px 0 10px}
+.mcp-modal .mcp-hh b{font-family:var(--display);font-size:13px;font-weight:700}
+.mcp-modal .mcp-hh button{font-family:var(--display);font-size:13px;font-weight:700;color:#2F6BFF}
+.mcp-modal .mcp-hh button:hover{text-decoration:underline}
+.mcp-modal .mcp-hl,.mcp-modal .mcp-hrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 36px;gap:8px;align-items:center}
+.mcp-modal .mcp-hl{font-family:var(--display);font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px}
+.mcp-modal .mcp-hrow+.mcp-hrow{margin-top:8px}
+.mcp-modal .mcp-hx{width:36px;height:40px;border-radius:8px;display:grid;place-items:center;color:var(--muted)}
+.mcp-modal .mcp-hx:hover{background:var(--surface);color:var(--fg)}
+.mcp-modal .mcp-hx svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 /* 스레드 */
 .cr-main.thread{display:flex;flex-direction:column}
 .cr-chatcol{flex:1;display:flex;flex-direction:column;min-height:100vh;min-width:0}
@@ -3642,7 +3663,33 @@ document.addEventListener('click',e=>{ const d=e.target.closest&&e.target.closes
 const crCloseMenu=()=>{ if(crMenuEl){ crMenuEl.remove(); crMenuEl=null; } };
 const crModelRows=q=>{ const rows=CR_MODELS.filter(([n])=>!q||n.toLowerCase().includes(q.toLowerCase())).map(([n,p])=>`<button type="button" class="${crModel===n?'on':''}" data-crmodelset="${n}">${n}${p?'<span class="prem">Premium</span>':''}</button>`).join(''); return rows||'<div class="none">맞는 모델이 없어요</div>'; };
 const crOpenMenu=(anchor,html,alignRight,cls)=>{ crCloseMenu(); const m=document.createElement('div'); m.className='cr-menu'+(cls?' '+cls:''); m.innerHTML=html; document.body.appendChild(m); const r=anchor.getBoundingClientRect(); const mw=m.offsetWidth, mh=m.offsetHeight; let left=alignRight?r.right-mw:r.left, top=r.bottom+6; if(top+mh>innerHeight-8) top=r.top-mh-6; left=Math.max(8,Math.min(left,innerWidth-mw-8)); m.style.left=left+window.scrollX+'px'; m.style.top=top+window.scrollY+'px'; crMenuEl=m; };
-const crToolsPanel=()=>`<div class="cr-tools" id="crToolsPanel"><div class="cr-tools-h"><b>도구</b><small>활성화한 도구만 Agent 8이 필요할 때 써요. 비용은 호출할 때만 들어요.</small></div><div class="cr-tools-g">${CR_TOOLS.map(([k,n,d,pr,ic])=>`<button type="button" class="cr-tool${crTools.has(k)?' on':''}" data-crtool="${k}"><span class="ti">${ic}${n}</span><span class="chk">${crIco.check}</span><small>${d}</small><em>${pr}</em></button>`).join('')}</div></div>`;
+const crToolsPanel=()=>`<div class="cr-tools" id="crToolsPanel"><div class="cr-tools-h"><b>도구</b><small>활성화한 도구만 Agent 8이 필요할 때 써요. 비용은 호출할 때만 들어요.</small></div><div class="cr-tools-g">${CR_TOOLS.map(([k,n,d,pr,ic])=>`<button type="button" class="cr-tool${crTools.has(k)?' on':''}" data-crtool="${k}"><span class="ti">${ic}${n}</span><span class="chk">${crIco.check}</span><small>${d}</small><em>${pr}</em></button>`).join('')}</div><div class="cr-tools-f"><button type="button" class="cr-tools-add" data-crmcp><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>사용자 MCP 도구 추가</button></div></div>`;
+// 사용자 MCP 도구 추가 팝업: 내 MCP 서버를 Agent 8의 도구로 연결(목업. 추가하면 도구 카드가 하나 생기고 켜진다)
+const CR_MCP_AUTH=[['none','인증 없음','Authorization 헤더나 Verse8 토큰을 보내지 않아요.'],['verse8','Verse8 인증','지금 로그인한 Verse8 토큰을 이 서버로 보내요. 믿을 수 있는 서버에만 켜세요.'],['bearer','전용 Bearer 토큰','이 MCP에는 전용 토큰만 보내요.'],['headers','사용자 지정 헤더','Authorization이나 X-API-Key 같은 요청 헤더를 정해요. 연결 · 세션 헤더는 자동으로 관리돼요.']];
+const crMcpIco='<svg viewBox="0 0 24 24"><path d="M9 2v6M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg>';
+const crMcpEsc=v=>v.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const crMcpHdrRow=()=>`<div class="mcp-hrow"><input class="db-in" data-mcp-hn placeholder="X-API-Key" autocomplete="off" spellcheck="false"><input class="db-in" data-mcp-hv type="password" placeholder="헤더 값" autocomplete="off" spellcheck="false"><button type="button" class="mcp-hx" data-mcp-delh aria-label="헤더 삭제"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>`;
+const openMcpTool=()=>{ openModal(`<div class="wl-modal mcp-modal"><button type="button" class="pl-close lg-close" data-close aria-label="닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><h2><span class="mcp-ic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>사용자 MCP 도구 추가</h2>
+  <div class="wl-lbl">MCP 도구 이름</div><input id="mcpName" class="db-in" placeholder="예: agent8" autocomplete="off" spellcheck="false" maxlength="40">
+  <div class="wl-lbl">MCP 도구 URL</div><input id="mcpUrl" class="db-in" placeholder="https://mcp.example.com/mcp" autocomplete="off" spellcheck="false" inputmode="url">
+  <div class="mcp-sep"></div>
+  <div class="wl-lbl">인증</div><select id="mcpAuth" class="db-in">${CR_MCP_AUTH.map(a=>`<option value="${a[0]}">${a[1]}</option>`).join('')}</select><p class="hint" id="mcpHint">${CR_MCP_AUTH[0][2]}</p>
+  <div id="mcpBearer" hidden><div class="wl-lbl">Bearer 토큰</div><input id="mcpToken" class="db-in" type="password" autocomplete="off" spellcheck="false"><p class="hint">이 탭의 메모리에만 보관하고, 런타임 컨테이너를 거쳐 이 MCP로 보내요. 새로고침하거나 계정을 바꾸면 다시 입력해야 해요.</p></div>
+  <div id="mcpHdrs" hidden><div class="mcp-hh"><b>요청 헤더</b><button type="button" data-mcp-addh>+ 헤더 추가</button></div><div class="mcp-hl"><span>이름</span><span>값</span><span></span></div><div id="mcpHdrList">${crMcpHdrRow()}</div><p class="hint">값은 이 탭의 메모리에만 보관하고, 런타임 컨테이너를 거쳐 이 MCP로 보내요. 새로고침하거나 계정을 바꾸면 다시 입력해야 해요.</p></div>
+  <div class="acts"><button type="button" class="btn btn-line" data-close>취소</button><button type="button" class="btn btn-blue" data-mcp-ok disabled>도구 추가</button></div></div>`); document.getElementById('mcpName').focus(); };
+const crMcpSync=()=>{ const g=id=>document.getElementById(id), name=g('mcpName').value.trim(), url=g('mcpUrl').value.trim(), auth=g('mcpAuth').value, okUrl=/^https?:\/\/[^\s/]+\.[^\s]+$/i.test(url);
+  g('mcpBearer').hidden=auth!=='bearer'; g('mcpHdrs').hidden=auth!=='headers'; g('mcpHint').textContent=CR_MCP_AUTH.find(a=>a[0]===auth)[2];
+  const okAuth=auth==='bearer'?!!g('mcpToken').value.trim():auth==='headers'?[...g('mcpHdrList').children].some(r=>r.querySelector('[data-mcp-hn]').value.trim()&&r.querySelector('[data-mcp-hv]').value.trim()):true;
+  document.querySelector('[data-mcp-ok]').disabled=!(name&&okUrl&&okAuth); };
+dbModalBody.addEventListener('click',e=>{ const list=document.getElementById('mcpHdrList'); if(!list) return;
+  if(e.target.closest('[data-mcp-addh]')){ list.insertAdjacentHTML('beforeend',crMcpHdrRow()); list.lastElementChild.querySelector('input').focus(); crMcpSync(); return; }
+  const del=e.target.closest('[data-mcp-delh]'); if(del){ const row=del.closest('.mcp-hrow'); if(list.children.length>1) row.remove(); else row.querySelectorAll('input').forEach(i=>{ i.value=''; }); crMcpSync(); } });
+const crToolsChip=()=>{ const chip=document.querySelector('#crMain [data-crtools]'); if(chip){ chip.classList.toggle('on',crTools.size>0); chip.innerHTML='<svg class="plus" viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15"/></svg>'+(crTools.size?`<span class="cnt">${crTools.size}</span>`:''); } };
+['input','change'].forEach(ev=>dbModalBody.addEventListener(ev,e=>{ if(e.target.closest('.mcp-modal')) crMcpSync(); }));
+dbModalBody.addEventListener('click',e=>{ const ok=e.target.closest('[data-mcp-ok]'); if(!ok||ok.disabled) return; const name=document.getElementById('mcpName').value.trim(); let host=document.getElementById('mcpUrl').value.trim(); try{ host=new URL(host).host; }catch(x){}
+  const k='mcp'+Date.now(); CR_TOOLS.push([k,crMcpEsc(name),crMcpEsc(host),'사용자 도구',crMcpIco]); crTools.add(k); closeModal(); crToolsChip();
+  // 바깥 클릭으로 패널을 닫는 처리가 끝난 뒤에 다시 연다(새 도구가 보이게)
+  setTimeout(()=>{ const box=document.querySelector('#crMain .cr-box'), old=document.getElementById('crToolsPanel'); if(old) old.remove(); if(box) box.insertAdjacentHTML('beforeend',crToolsPanel()); },0); });
 const crMaybeIntro=()=>{ let seen=false; try{ seen=localStorage.getItem('v8crIntro')==='1'; }catch(e){} if(!seen) crShowIntro(); };
 const crShowIntro=()=>{ let back=document.getElementById('crIntro'); if(!back){ back=document.createElement('div'); back.className='lg-back'; back.id='crIntro'; document.body.appendChild(back); }
   back.innerHTML=`<div class="cr-intro"><button type="button" class="pl-close lg-close" data-crintro-close aria-label="닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><h2>장르 예시로 시작해 보세요</h2><p>카드를 누르면 예시 프롬프트가 입력창에 들어가요. 그대로 보내도 되고 고쳐도 돼요.</p><div class="cr-genres">${CR_GENRES.map(([n,d,pr,k],i)=>`<button type="button" class="cr-genre" data-crgenre="${i}"><div class="th"><video class="${({days49:'story',underGun:'scroller',vampire:'surv'})[k]||''}" src="../video/genre-${CR_GVID[k]}.webm" poster="../img/${(G[k]||G.ldw).i}" muted loop playsinline preload="metadata"></video><b>${n}</b></div><small>${d}</small></button>`).join('')}</div><div class="cr-intro-f"><label><input type="checkbox" id="crIntroNo"><span class="cb"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>다시 보지 않기</label><button type="button" class="btn btn-line" data-crintro-close>닫기</button></div></div>`;
@@ -3705,6 +3752,7 @@ document.addEventListener('click',e=>{ const t=e.target;
   const use=t.closest('[data-cruse]'); if(use){ const a=CR_ASSETS.find(x=>x.id===use.dataset.cruse); crPendingFill='@'+a.t+' 에셋을 써서 '; location.hash='#create'; return; }
   const sug=t.closest('[data-crsug]'); if(sug){ crFill(CR_GENRES[+sug.dataset.crsug][2]); return; }
   if(t.closest('[data-crsend]')){ crSend(); return; }
+  if(t.closest('[data-crmcp]')){ openMcpTool(); return; }
   if(t.closest('[data-crtools]')){ const box=t.closest('.cr-box'); const ex=document.getElementById('crToolsPanel'); if(ex){ ex.remove(); return; } box.insertAdjacentHTML('beforeend',crToolsPanel()); return; }
   const tl=t.closest('[data-crtool]'); if(tl){ const k=tl.dataset.crtool; if(crTools.has(k)) crTools.delete(k); else crTools.add(k); tl.classList.toggle('on',crTools.has(k)); const chip=document.querySelector('#crMain [data-crtools]'); if(chip){ chip.classList.toggle('on',crTools.size>0); chip.innerHTML='<svg class="plus" viewBox="0 0 24 24"><path d="M12 4.5v15M4.5 12h15"/></svg>'+(crTools.size?`<span class="cnt">${crTools.size}</span>`:''); } return; }
   const md=t.closest('[data-crmodel]'); if(md){ crOpenMenu(md,`<div class="srch"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input placeholder="모델 검색" data-crmsrch autocomplete="off"></div><div class="list">${crModelRows('')}</div>`,true,'models'); const si=crMenuEl.querySelector('[data-crmsrch]'); si.focus(); return; }
