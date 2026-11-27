@@ -2055,6 +2055,15 @@ body.dr-open{overflow:hidden}
   body.view-game #gamePage{padding-top:20px}
   .gp-a .gp-side h1,.gp-side h1{font-size:24px}
 }
+/* ---------- Dark 모드: 떠 있는 면(팝업 · 패널 · Menu)은 페이지(#0F1115)보다 밝은 회색(11/27) ----------
+   면 자체는 #20242C. 그 안에서는 --bg · --surface · --line을 한 단계씩 밝게 다시 정의해서
+   입력칸 · 카드 · 선 버튼(#2A2F39), 호버 · 선택(#333945), 테두리(#363C48)가 따로 고치지 않아도 따라온다. */
+body.dark :is(.db-modal-p,.lg-panel,.pl-panel,.cm-panel,.cr-big,.cr-intro,.cr-tools,.cr-menu,.menu,.ava-menu,.gnb-pop,.spanel,.drawer,.note){--bg:#2A2F39;--surface:#333945;--surface-2:#3A414D;--line:#363C48;background:#20242C;border-color:#2E343E}
+body.dark :is(.db-modal-p,.lg-panel,.pl-panel,.cm-panel,.cr-big,.cr-intro){box-shadow:0 0 0 1px #2E343E,0 24px 64px rgba(0,0,0,.6)}
+/* 팝업 · 패널 안에 다시 뜨는 Menu는 한 단계 더 밝게 */
+body.dark :is(.db-modal-p,.lg-panel,.pl-panel,.cm-panel,.cr-big,.cr-intro,.cr-tools,.spanel,.drawer) :is(.menu,.cr-menu){--bg:#333945;--surface:#3A414D;background:#2A2F39;border-color:#363C48}
+body.dark .db-plot .tip{background:#2A2F39;border-color:#363C48}
+body.dark .cr-tool .chk{border-color:#5A6270}
 </style>
 
 </head>
@@ -3180,7 +3189,7 @@ dbModalBody.addEventListener('input',e=>{ if(e.target.id==='wlAmt'){ const n=wlA
 // ===== Help: Creator guide(#guide) · MCP · Review policy · Payout guide · 문의 =====
 const HELP_DOCS='https://docs.verse8.io/ko/docs';
 const renderGuide=()=>{ const secs=[
-  ['1','Create','One prompt line is enough to start. Tap a genre example card to load a sample prompt, and use 📎 to attach images, documents or projects. Tools (Image · Cinematic · Audio · Skybox · UI · 2D→3D · MSU) are used only when switched on and needed, and you are charged only when one is called.',[['guide/prompt','Prompt writing docs'],['guide/tools','AI tools docs']]],
+  ['1','Create','One prompt line is enough to start. Tap a genre example card to load a sample prompt, and use 📎 to attach images, documents or projects. Tools (Image · Cinematic · Audio · Skybox · UI · 2D→3D) are used only when switched on and needed, and you are charged only when one is called.',[['guide/prompt','Prompt writing docs'],['guide/tools','AI tools docs']]],
   ['2','Preview and edit','Play right away from the result card under the reply. Keep it open in a new window and it switches to the new build every time you send a prompt. If something is off, just ask to keep fixing it.',[['guide/editor','Editor docs']]],
   ['3','Launch','Press Launch on the result card to fill in game info such as title, URL, intro, genre and thumbnail, and request publishing. Only the first publish is reviewed; later updates go live right after an automatic check.',[['review','See the review policy','help']]],
   ['4','Monetization and payouts','Published games can add ads (rewarded by default, interstitials allowed per game) and in-game purchases (VX). VX revenue is recorded cumulatively, and you can withdraw it once the payout system opens.',[['vxshop/intro','VX shop docs'],['settle','See payout info','help']]],
@@ -3669,7 +3678,8 @@ document.addEventListener('click',e=>{ const d=e.target.closest&&e.target.closes
 const crCloseMenu=()=>{ if(crMenuEl){ crMenuEl.remove(); crMenuEl=null; } };
 const crModelRows=q=>{ const rows=CR_MODELS.filter(([n])=>!q||n.toLowerCase().includes(q.toLowerCase())).map(([n,p])=>`<button type="button" class="${crModel===n?'on':''}" data-crmodelset="${n}">${n}${p?'<span class="prem">Premium</span>':''}</button>`).join(''); return rows||'<div class="none">No matching models</div>'; };
 const crOpenMenu=(anchor,html,alignRight,cls)=>{ crCloseMenu(); const m=document.createElement('div'); m.className='cr-menu'+(cls?' '+cls:''); m.innerHTML=html; document.body.appendChild(m); const r=anchor.getBoundingClientRect(); const mw=m.offsetWidth, mh=m.offsetHeight; let left=alignRight?r.right-mw:r.left, top=r.bottom+6; if(top+mh>innerHeight-8) top=r.top-mh-6; left=Math.max(8,Math.min(left,innerWidth-mw-8)); m.style.left=left+window.scrollX+'px'; m.style.top=top+window.scrollY+'px'; crMenuEl=m; };
-const crToolsPanel=()=>`<div class="cr-tools" id="crToolsPanel"><div class="cr-tools-h"><b>Tools</b><small>Agent 8 uses only the tools you enable, and only when needed. You are charged only when one is called.</small></div><div class="cr-tools-g">${CR_TOOLS.map(([k,n,d,pr,ic])=>`<button type="button" class="cr-tool${crTools.has(k)?' on':''}" data-crtool="${k}"><span class="ti">${ic}${n}</span><span class="chk">${crIco.check}</span><small>${d}</small><em>${pr}</em></button>`).join('')}</div><div class="cr-tools-f"><button type="button" class="cr-tools-add" data-crmcp><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add Custom MCP Tool</button></div></div>`;
+// MSU Tools는 Game잼이 끝나 패널에서 뺀다(11/27). CR_TOOLS의 Source은 Credits 화면이 아이콘을 쓰므로 남겨 둠
+const crToolsPanel=()=>`<div class="cr-tools" id="crToolsPanel"><div class="cr-tools-h"><b>Tools</b><small>Agent 8 uses only the tools you enable, and only when needed. You are charged only when one is called.</small></div><div class="cr-tools-g">${CR_TOOLS.filter(t=>t[0]!=='msu').map(([k,n,d,pr,ic])=>`<button type="button" class="cr-tool${crTools.has(k)?' on':''}" data-crtool="${k}"><span class="ti">${ic}${n}</span><span class="chk">${crIco.check}</span><small>${d}</small><em>${pr}</em></button>`).join('')}</div><div class="cr-tools-f"><button type="button" class="cr-tools-add" data-crmcp><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add Custom MCP Tool</button></div></div>`;
 // Add Custom MCP Tool 팝업: 내 MCP Server를 Agent 8의 Tools로 연결(목업. 추가하면 Tools 카드가 하나 생기고 켜진다)
 const CR_MCP_AUTH=[['none','No authentication','No Authorization header or Verse8 token will be sent.'],['verse8','Verse8 authentication','Your current Verse8 token will be sent to this server. Only enable this for a server you trust.'],['bearer','Dedicated Bearer token','Only the dedicated token is sent to this MCP.'],['headers','Custom headers','Set request headers such as Authorization or X-API-Key. Connection and session headers are managed automatically.']];
 const crMcpIco='<svg viewBox="0 0 24 24"><path d="M9 2v6M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg>';

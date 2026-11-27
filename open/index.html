@@ -2055,6 +2055,15 @@ body.dr-open{overflow:hidden}
   body.view-game #gamePage{padding-top:20px}
   .gp-a .gp-side h1,.gp-side h1{font-size:24px}
 }
+/* ---------- 다크 모드: 떠 있는 면(팝업 · 패널 · 메뉴)은 페이지(#0F1115)보다 밝은 회색(11/27) ----------
+   면 자체는 #20242C. 그 안에서는 --bg · --surface · --line을 한 단계씩 밝게 다시 정의해서
+   입력칸 · 카드 · 선 버튼(#2A2F39), 호버 · 선택(#333945), 테두리(#363C48)가 따로 고치지 않아도 따라온다. */
+body.dark :is(.db-modal-p,.lg-panel,.pl-panel,.cm-panel,.cr-big,.cr-intro,.cr-tools,.cr-menu,.menu,.ava-menu,.gnb-pop,.spanel,.drawer,.note){--bg:#2A2F39;--surface:#333945;--surface-2:#3A414D;--line:#363C48;background:#20242C;border-color:#2E343E}
+body.dark :is(.db-modal-p,.lg-panel,.pl-panel,.cm-panel,.cr-big,.cr-intro){box-shadow:0 0 0 1px #2E343E,0 24px 64px rgba(0,0,0,.6)}
+/* 팝업 · 패널 안에 다시 뜨는 메뉴는 한 단계 더 밝게 */
+body.dark :is(.db-modal-p,.lg-panel,.pl-panel,.cm-panel,.cr-big,.cr-intro,.cr-tools,.spanel,.drawer) :is(.menu,.cr-menu){--bg:#333945;--surface:#3A414D;background:#2A2F39;border-color:#363C48}
+body.dark .db-plot .tip{background:#2A2F39;border-color:#363C48}
+body.dark .cr-tool .chk{border-color:#5A6270}
 </style>
 
 </head>
@@ -3180,7 +3189,7 @@ dbModalBody.addEventListener('input',e=>{ if(e.target.id==='wlAmt'){ const n=wlA
 // ===== 도움말: 크리에이터 가이드(#guide) · MCP 연결 · 심사 정책 · 정산 안내 · 문의 =====
 const HELP_DOCS='https://docs.verse8.io/ko/docs';
 const renderGuide=()=>{ const secs=[
-  ['1','만들기','프롬프트 한 줄이면 시작돼요. 장르 예시 카드를 누르면 예시 프롬프트가 들어가고, 📎로 이미지·문서·프로젝트를 붙일 수 있어요. 도구(이미지 · 시네마틱 · 오디오 · 스카이박스 · UI · 2D→3D · MSU)는 켜 둔 것만 필요할 때 쓰고 비용은 호출할 때만 들어요.',[['guide/prompt','프롬프트 작성 문서'],['guide/tools','AI 도구 문서']]],
+  ['1','만들기','프롬프트 한 줄이면 시작돼요. 장르 예시 카드를 누르면 예시 프롬프트가 들어가고, 📎로 이미지·문서·프로젝트를 붙일 수 있어요. 도구(이미지 · 시네마틱 · 오디오 · 스카이박스 · UI · 2D→3D)는 켜 둔 것만 필요할 때 쓰고 비용은 호출할 때만 들어요.',[['guide/prompt','프롬프트 작성 문서'],['guide/tools','AI 도구 문서']]],
   ['2','미리보기와 수정','답변 아래 결과 카드에서 바로 플레이해 보세요. 새 창으로 띄워 두면 프롬프트를 보낼 때마다 그 창도 새 빌드로 바뀌어요. 마음에 안 들면 이어서 고쳐 달라고 말하면 돼요.',[['guide/editor','에디터 문서']]],
   ['3','Launch','결과 카드의 Launch를 누르면 제목 · 주소 · 소개 · 장르 · 썸네일 같은 게임 정보를 적고 게시를 요청해요. 첫 게시만 심사하고, 이후 업데이트는 자동 검사 뒤 바로 반영돼요.',[['review','심사 정책 보기','help']]],
   ['4','수익화와 정산','게시된 게임에는 광고(보상형 기본, 전면 광고는 게임별 허용)와 인게임 구매(VX)를 붙일 수 있어요. VX 수익은 누적 기록되고, 정산 시스템이 열리면 출금할 수 있어요.',[['vxshop/intro','VX 상점 문서'],['settle','정산 안내 보기','help']]],
@@ -3669,7 +3678,8 @@ document.addEventListener('click',e=>{ const d=e.target.closest&&e.target.closes
 const crCloseMenu=()=>{ if(crMenuEl){ crMenuEl.remove(); crMenuEl=null; } };
 const crModelRows=q=>{ const rows=CR_MODELS.filter(([n])=>!q||n.toLowerCase().includes(q.toLowerCase())).map(([n,p])=>`<button type="button" class="${crModel===n?'on':''}" data-crmodelset="${n}">${n}${p?'<span class="prem">Premium</span>':''}</button>`).join(''); return rows||'<div class="none">맞는 모델이 없어요</div>'; };
 const crOpenMenu=(anchor,html,alignRight,cls)=>{ crCloseMenu(); const m=document.createElement('div'); m.className='cr-menu'+(cls?' '+cls:''); m.innerHTML=html; document.body.appendChild(m); const r=anchor.getBoundingClientRect(); const mw=m.offsetWidth, mh=m.offsetHeight; let left=alignRight?r.right-mw:r.left, top=r.bottom+6; if(top+mh>innerHeight-8) top=r.top-mh-6; left=Math.max(8,Math.min(left,innerWidth-mw-8)); m.style.left=left+window.scrollX+'px'; m.style.top=top+window.scrollY+'px'; crMenuEl=m; };
-const crToolsPanel=()=>`<div class="cr-tools" id="crToolsPanel"><div class="cr-tools-h"><b>도구</b><small>활성화한 도구만 Agent 8이 필요할 때 써요. 비용은 호출할 때만 들어요.</small></div><div class="cr-tools-g">${CR_TOOLS.map(([k,n,d,pr,ic])=>`<button type="button" class="cr-tool${crTools.has(k)?' on':''}" data-crtool="${k}"><span class="ti">${ic}${n}</span><span class="chk">${crIco.check}</span><small>${d}</small><em>${pr}</em></button>`).join('')}</div><div class="cr-tools-f"><button type="button" class="cr-tools-add" data-crmcp><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>사용자 MCP 도구 추가</button></div></div>`;
+// MSU 도구는 게임잼이 끝나 패널에서 뺀다(11/27). CR_TOOLS의 항목은 크레딧 화면이 아이콘을 쓰므로 남겨 둠
+const crToolsPanel=()=>`<div class="cr-tools" id="crToolsPanel"><div class="cr-tools-h"><b>도구</b><small>활성화한 도구만 Agent 8이 필요할 때 써요. 비용은 호출할 때만 들어요.</small></div><div class="cr-tools-g">${CR_TOOLS.filter(t=>t[0]!=='msu').map(([k,n,d,pr,ic])=>`<button type="button" class="cr-tool${crTools.has(k)?' on':''}" data-crtool="${k}"><span class="ti">${ic}${n}</span><span class="chk">${crIco.check}</span><small>${d}</small><em>${pr}</em></button>`).join('')}</div><div class="cr-tools-f"><button type="button" class="cr-tools-add" data-crmcp><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>사용자 MCP 도구 추가</button></div></div>`;
 // 사용자 MCP 도구 추가 팝업: 내 MCP 서버를 Agent 8의 도구로 연결(목업. 추가하면 도구 카드가 하나 생기고 켜진다)
 const CR_MCP_AUTH=[['none','인증 없음','Authorization 헤더나 Verse8 토큰을 보내지 않아요.'],['verse8','Verse8 인증','지금 로그인한 Verse8 토큰을 이 서버로 보내요. 믿을 수 있는 서버에만 켜세요.'],['bearer','전용 Bearer 토큰','이 MCP에는 전용 토큰만 보내요.'],['headers','사용자 지정 헤더','Authorization이나 X-API-Key 같은 요청 헤더를 정해요. 연결 · 세션 헤더는 자동으로 관리돼요.']];
 const crMcpIco='<svg viewBox="0 0 24 24"><path d="M9 2v6M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/></svg>';
