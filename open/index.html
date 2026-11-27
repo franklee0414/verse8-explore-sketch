@@ -240,8 +240,15 @@ body.signed .gnb-right .gnb-ava{margin-left:12px}
 .jam.active .live{background:#ffffff;color:#111316}
 /* MSU SPACE 배너: 늘 첫 칸, 늘 밝게. 제목은 verse8.io/msu 머리글과 같은 폰트 · 그림자 */
 .jam.msu>img,a.jam.msu:hover>img{opacity:1}
+.jam.msu>img{transition:transform .25s ease}
+a.jam.msu:hover>img{transform:scale(1.1)}
 .jam.msu .live{background:#fff;color:#111316}
 .jam.msu .msu-t{position:absolute;left:calc(14px - .03em);bottom:calc(14px - .175em);z-index:1;font-family:"Sofia Sans Condensed","Arial Narrow","Roboto Condensed",sans-serif;font-weight:800;font-size:40px;line-height:.95;letter-spacing:.01em;text-transform:uppercase;color:#fff;white-space:nowrap;text-shadow:-2px -2px 0 rgba(81,100,213,.65),2px 2px 0 rgba(162,76,207,.65)}
+.jam.one{background:linear-gradient(180deg,rgba(11,12,14,.12) 0%,rgba(11,12,14,.58) 100%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 120' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%239C3D22'/%3E%3Cstop offset='1' stop-color='%238A2531'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2386232D'/%3E%3Cstop offset='1' stop-color='%236C1936'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23A3284F'/%3E%3Cstop offset='1' stop-color='%237A1548'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url%28%23a%29' d='M0 0H300V30L128 66L0 14Z'/%3E%3Cpath fill='url%28%23b%29' d='M0 14L128 66L112 120H0Z'/%3E%3Cpath fill='url%28%23c%29' d='M128 66L300 30V120H112Z'/%3E%3C/svg%3E") center/100% 100% no-repeat,#5a1a2c}
+.jam.one .live{background:#fff;color:#111316}
+.jam.one .one-logo{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);z-index:1;line-height:0;transition:transform .2s}
+.jam.one .one-logo img{display:block;height:24px;width:auto}
+a.jam.one:hover .one-logo{transform:translate(-50%,-50%) scale(1.06)}
 @media (max-width:900px){.jams{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:480px){.jams{grid-template-columns:1fr}}
 
@@ -1202,10 +1209,8 @@ body.dark .cr-brand img{filter:brightness(0) invert(1)}
 .cr-main>*:not(.cr-bg){position:relative;z-index:1}
 /* 배경 메시(WebGL): 가운데(제목 · 입력창 뒤)는 옅게, 테마 전환 알약은 오른쪽 아래 */
 .cr-bg{-webkit-mask-image:radial-gradient(ellipse 34% 20% at 50% 45%,rgba(0,0,0,.45) 0%,rgba(0,0,0,.7) 70%,#000 100%);mask-image:radial-gradient(ellipse 34% 20% at 50% 45%,rgba(0,0,0,.45) 0%,rgba(0,0,0,.7) 70%,#000 100%)}
-.cr-main>.cr-bgsw{position:absolute;right:20px;bottom:18px;z-index:2;display:flex;gap:2px;padding:3px;border-radius:999px;background:color-mix(in srgb,var(--bg) 86%,transparent);border:1px solid var(--line);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-.cr-bgsw button{height:28px;padding:0 12px;border-radius:999px;font-family:var(--display);font-size:12px;font-weight:600;color:var(--muted)}
-.cr-bgsw button:hover{color:var(--fg)}
-.cr-bgsw button.on{background:var(--fg);color:var(--bg)}
+/* 장면 고르는 알약은 숨김(11/27): 배경은 접속마다 무작위로만 바뀐다 */
+.cr-main>.cr-bgsw{display:none}
 /* /배경 메시 CSS */
 .cr-new{display:flex;align-items:center;gap:10px;height:40px;padding:0 12px;border-radius:10px;font-family:var(--display);font-weight:600;font-size:14px;color:var(--fg);text-align:left}
 .cr-new:hover{background:var(--cr-hover)}
@@ -1313,7 +1318,11 @@ body.view-create #createPage.guest{grid-template-columns:0 minmax(0,1fr)}
 .cr-ctx button:hover{background:var(--line);color:var(--fg)}
 .cr-ctx button svg{width:12px;height:12px;stroke-width:2}
 .cr-box{position:relative;width:100%;max-width:768px;border:1px solid #E9ECF0;border-radius:24px;background:var(--bg);box-shadow:0 1px 3px rgba(20,24,40,.04);padding:14px 16px 10px}
-body.dark .cr-box{border-color:var(--line)}
+body.dark .cr-box{border-color:#2E343E;background:var(--surface-2)}
+body.dark .cr-home .cr-box,body.dark .cr-dock .cr-box{box-shadow:0 2px 6px rgba(0,0,0,.35),0 14px 36px rgba(0,0,0,.45)}
+body.dark .cr-home .cr-box:focus-within,body.dark .cr-dock .cr-box:focus-within{border-color:#4A5261;box-shadow:0 0 0 .2px #4A5261,0 2px 6px rgba(47,107,255,.12),0 14px 36px rgba(47,107,255,.20)}
+body.dark .cr-box .cr-chip:hover,body.dark .cr-box .cr-model:hover{background:#2B303A}
+body.dark .cr-box .cr-chip.tools .cnt{border-color:var(--surface-2)}
 .cr-box:focus-within{border-color:#D5DAE1;box-shadow:0 4px 16px rgba(20,24,40,.06)}
 /* Create 입력창(홈 · 대화 화면 공통)은 떠 보이도록 그림자를 더 진하게 */
 .cr-home .cr-box,.cr-dock .cr-box{box-shadow:0 2px 6px rgba(20,24,40,.05),0 14px 36px rgba(20,24,40,.10)}
@@ -1366,7 +1375,8 @@ body.dark .cr-box{border-color:var(--line)}
 .cr-send[disabled]{opacity:.25;cursor:default}
 .cr-sugs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:768px;margin-top:18px}
 .cr-sug{height:36px;padding:0 14px;border-radius:999px;border:1px solid #EDF0F3;font-size:13px;color:var(--muted);background:var(--bg)}
-body.dark .cr-sug{border-color:var(--line)}
+body.dark .cr-sug{border-color:var(--line);background:var(--surface)}
+body.dark .cr-sug:hover{background:var(--surface-2)}
 .cr-sug:hover{color:var(--fg);background:var(--surface)}
 .cr-hint{margin-top:14px;font-size:12px;color:#9AA1AB;text-align:center}
 .cr-hint a{color:var(--muted);text-decoration:underline}
@@ -1575,6 +1585,10 @@ body.dark .cr-dock{background:linear-gradient(to top,var(--bg) 75%,rgba(15,17,21
 .cr-dock .cr-hint{margin-top:10px}
 /* 장르 예시 팝업 */
 .cr-intro{position:relative;width:min(820px,calc(100vw - 32px));background:var(--bg);border-radius:16px;padding:32px 32px 24px;box-shadow:0 24px 64px rgba(0,0,0,.3);animation:epIn .2s ease both;text-align:left}
+body.dark .cr-intro{background:var(--surface-2);box-shadow:0 0 0 1px #2E343E,0 24px 64px rgba(0,0,0,.6)}
+body.dark .cr-genre{background:#2A2F39;border-color:#363C48}
+body.dark .cr-intro-f .cb{background:transparent;border-color:#5A6270}
+body.dark .cr-intro-f input:checked+.cb svg{stroke:var(--bg)}
 .cr-intro h2{font-family:var(--display);font-size:20px;font-weight:800;margin:0 0 6px}
 .cr-intro>p{margin:0 0 20px;font-size:14px;color:var(--muted)}
 .cr-genres{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -2174,10 +2188,10 @@ body.dr-open{overflow:hidden}
       <div><h2>IP Games</h2><p>게임잼 제출작 222개</p></div>
     </div>
     <div class="jams">
-      <a class="jam msu" href="https://verse8.io/msu" target="_blank" rel="noopener" aria-label="MSU Space"><img src="../img/msu-space.jpg" alt=""><span class="live">MapleStory</span><div class="msu-t">MSU Space</div></a>
+      <a class="jam msu" href="https://verse8.io/msu" target="_blank" rel="noopener" aria-label="MSU Space"><img src="../img/msu-space.jpg" alt=""><span class="live">Partner</span><div class="msu-t">MSU Space</div></a>
+      <a class="jam one" href="https://verse8.io/one" target="_blank" rel="noopener" aria-label="ONEchain"><span class="live">Partner</span><span class="one-logo" aria-hidden="true"><img src="../img/one-logo.webp" alt=""></span><div class="n">ONEchain</div><div class="d">Build on ONE</div></a>
       <a class="jam active" href="#" data-jam="0"><img src="../img/jam-maple-s2.jpg" alt=""><span class="live">진행 중</span><div class="n">MapleStory Vibe Camp Season 2</div><div class="d">2026.08.18 – 09.15</div></a>
       <a class="jam" href="#" data-jam="1"><img src="../img/jam-maple-s1.jpg" alt=""><span class="live closed">마감</span><div class="n">MapleStory Vibe Camp</div><div class="d">2026.06.08 – 06.29</div></a>
-      <a class="jam" href="#" data-jam="2"><img src="../img/jam-ygg.jpg" alt=""><span class="live closed">마감</span><div class="n">YGG Play Casual Degen Hackathon</div><div class="d">2026.03.11 – 04.17</div></a>
     </div>
     <div class="carousel" id="jamCar">
       <div class="apps" id="jamRow"></div>
@@ -3277,7 +3291,10 @@ const instanced=(me,list)=>{ const vao=gl.createVertexArray(); gl.bindVertexArra
   const D=new Float32Array(list.length*17); list.forEach((it,i)=>{ D.set(it.M,i*17); D[i*17+16]=it.t0; }); const ib=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,ib); gl.bufferData(gl.ARRAY_BUFFER,D,gl.STATIC_DRAW);
   for(let k=0;k<4;k++){ gl.enableVertexAttribArray(3+k); gl.vertexAttribPointer(3+k,4,gl.FLOAT,false,68,k*16); gl.vertexAttribDivisor(3+k,1); } gl.enableVertexAttribArray(7); gl.vertexAttribPointer(7,1,gl.FLOAT,false,68,64); gl.vertexAttribDivisor(7,1); gl.bindVertexArray(null);
   return {me,vao,n:list.length}; };
-const load=url=>fetch(url).then(r=>{ if(!r.ok) throw new Error('load '+url); return r.arrayBuffer(); }).then(b=>upload(parseV8M(b)));
+// V8Z1(tools/compress-mesh.js로 압축한 모델): deflate-raw를 풀고 차이값 · 바이트 평면 · 위치 양자화를 되돌려 보통 V8M으로 만든다
+const unV8Z=(u)=>{ const dv=new DataView(u.buffer,u.byteOffset,u.byteLength), jl=dv.getUint32(4,true), meta=JSON.parse(new TextDecoder().decode(u.subarray(8,8+jl))), base=8+jl, z=meta.z||{}, w=meta.idx==='u16'?2:4, K={quad:4,edge:2,tri:3}; const un=(k,W)=>{ const b=meta.blobs[k], n=b[1]/W, s=u.subarray(base+b[0],base+b[0]+b[1]), o=new (W===2?Uint16Array:Uint32Array)(n); for(let i=0;i<n;i++){ let v=0; for(let j=W-1;j>=0;j--) v=v*256+s[j*n+i]; o[i]=v; } return o; }, dz=v=>v&1?-(v+1)/2:v/2; for(const k in z){ const b=meta.blobs[k]; if(!b) continue; const W=k==='pos'?2:w, a=un(k,W), m=k==='pos'?3:z[k], g=K[k]; if(m==='r') for(let i=0;i<a.length;i++){ const j=i%g; a[i]=dz(a[i])+(j?a[i-j]:i?a[i-g]:0); } else for(let i=0;i<a.length;i++) a[i]=dz(a[i])+(i>=m?a[i-m]:0); if(k==='pos'){ const q=2**z.pos-1; for(let i=0;i<a.length;i++) a[i]=Math.round(a[i]*65535/q); } u.set(new Uint8Array(a.buffer),base+b[0]); } return u.buffer.slice(u.byteOffset,u.byteOffset+u.byteLength); };
+const inflate=b=>{ if(new DataView(b).getUint32(0,true)!==0x315a3856) return b; return new Response(new Blob([new Uint8Array(b,8)]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).arrayBuffer().then(x=>unV8Z(new Uint8Array(x))); };
+const load=url=>fetch(url).then(r=>{ if(!r.ok) throw new Error('load '+url); return r.arrayBuffer(); }).then(inflate).then(b=>upload(parseV8M(b)));
 
 // ---------- 뼈대 FK: 뼈마다 head를 축으로 회전(월드 축 기준)을 부모에서 자식으로 누적. 결과는 스킨 행렬(휴지 자세 = 단위 행렬)
 const rig=bones=>{ const ix={}; bones.forEach((b,i)=>ix[b.name]=i); const n=bones.length, F=new Array(n), out=new Float32Array(256*4);
